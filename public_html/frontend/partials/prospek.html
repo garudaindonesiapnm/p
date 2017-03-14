@@ -1,0 +1,19 @@
+<div class="col-sm-8 col-sm-offset-2">
+    <div>
+        <div>
+            <h2>Prospek</h2>
+            <div>
+                <a ui-sref-active="active" ui-sref=".kategori"><span></span> Kategori Prospek</a>
+                <a ui-sref-active="active" ui-sref=".informasipribadi"><span></span> Informasi Pribadi</a>
+                <a ui-sref-active="active" ui-sref=".dokumenidentitas"><span></span> Dokumen Identitas</a>
+                <a ui-sref-active="active" ui-sref=".kontak"><span></span> Kontak</a>
+                <a ui-sref-active="active" ui-sref=".alamat"><span></span> Alamat</a>
+                <a ui-sref-active="active" ui-sref=".statuspekerjaan"><span></span> Status Pekerjaan</a>
+                <a ui-sref-active="active" ui-sref=".pendidikan"><span></span> Pendidikan</a>
+            </div>
+        </div>
+        <form id="form-prospek" ng-submit="processFormProspek()">
+            <div class="col-md-6 col-md-offset-3" ui-view></div>
+        </form>
+    </div>
+</div>
