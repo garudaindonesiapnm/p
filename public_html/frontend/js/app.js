@@ -1,4 +1,4 @@
-var App = angular.module('App', ['ngRoute' , 'ngAnimate' , 'angularMoment', 'ui.bootstrap', 'ui.router']);
+var App = angular.module('App', ['ngAnimate' , 'angularMoment', 'ui.bootstrap', 'ui.router']);
 
 App.config( function($stateProvider, $urlRouterProvider) {
         
@@ -14,6 +14,11 @@ App.config( function($stateProvider, $urlRouterProvider) {
         .state('prospek', {
             url: '/prospek',
             templateUrl: 'partials/prospek.html',
+            controller: 'prospekCtrl'
+        })
+        .state('prospekmandatory', {
+            url: '/prospek',
+            templateUrl: 'partials/prospek-mandatory.html',
             controller: 'prospekCtrl'
         })
         .state('prospek.kategori', {
@@ -36,6 +41,18 @@ App.config( function($stateProvider, $urlRouterProvider) {
             url: '/prospek-alamat',
             templateUrl: 'partials/prospek-alamat.html'
         })
+        .state('prospek.alamat.ktp', {
+            url: '/prospek-alamat-ktp',
+            templateUrl: 'partials/prospek-alamat-ktp.html'
+        })
+        .state('prospek.alamat.domisili', {
+            url: '/prospek-alamat-domisili',
+            templateUrl: 'partials/prospek-alamat-domisili.html'
+        })
+        .state('prospek.alamat.tempatusaha', {
+            url: '/prospek-alamat-tempat-usaha',
+            templateUrl: 'partials/prospek-alamat-tempat-usaha.html'
+        })
         .state('prospek.statuspekerjaan', {
             url: '/prospek-status-pekerjaan',
             templateUrl: 'partials/prospek-status-pekerjaan.html'
@@ -44,6 +61,16 @@ App.config( function($stateProvider, $urlRouterProvider) {
             url: '/prospek-pendidikan',
             templateUrl: 'partials/prospek-pendidikan.html'
         })
+        .state('prospek.submit', {
+            url: '/prospek-submit',
+            templateUrl: 'partials/prospek-submit.html'
+        })
+        
+        .state('keluarga', {
+            url: '/keluarga-data',
+            templateUrl: 'partials/prospek-submit.html'
+        })
+        
         ;
         
         $urlRouterProvider.otherwise('/');
