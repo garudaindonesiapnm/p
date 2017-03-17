@@ -67,6 +67,11 @@ App.config( function($stateProvider, $urlRouterProvider) {
         
         /* KELUARGA */
         .state('keluarga', {
+            url: '/keluarga',
+            templateUrl: 'partials/keluarga.html',
+            controller: 'keluargaCtrl'
+        })
+        .state('keluarga.data', {
             url: '/keluarga-data',
             templateUrl: 'partials/keluarga-data.html'
         })
@@ -95,5 +100,77 @@ App.controller('prospekCtrl', function($scope) {
     };
     
 });
+
+App.controller('keluargaCtrl', function($scope) {
+
+    $scope.formDataKeluarga = {};
+
+    $scope.processFormKeluarga = function() {
+         console.log($scope.formDataKeluarga);
+    };
+    
+    $scope.processFormKeluargaMandatory = function() {
+         console.log($scope.formDataKeluarga);
+    };
+    
+});
+
+App.controller('aplikasiCtrl', function($scope) {
+
+    $scope.formDataAplikasi = {};
+
+    $scope.processFormAplikasi = function() {
+         console.log($scope.formDataAplikasi);
+    };
+    
+    $scope.processFormAplikasiMandatory = function() {
+         console.log($scope.formDataAplikasi);
+    };
+    
+});
+
+App.controller('agunanCtrl', function($scope) {
+
+    $scope.formDataAgunan = {};
+
+    $scope.processFormAgunan = function() {
+         console.log($scope.formDataAgunan);
+    };
+    
+    $scope.processFormAgunanMandatory = function() {
+         console.log($scope.formDataAgunan);
+    };
+    
+});
+
+App.controller('dokumenCtrl', function($scope) {
+
+    $scope.formDataDokumen = {};
+
+    $scope.processFormDokumen = function() {
+         console.log($scope.formDataDokumen);
+    };
+    
+    $scope.processFormDokumenMandatory = function() {
+         console.log($scope.formDataDokumen);
+    };
+    
+});
+
+App.controller('aomCtrl', function($scope) {
+
+    $scope.formDataAom = {};
+
+    $scope.processFormAom = function() {
+         console.log($scope.formDataAom);
+    };
+    
+    $scope.processFormAomMandatory = function() {
+         console.log($scope.formDataAom);
+    };
+    
+});
+
+
 
 
