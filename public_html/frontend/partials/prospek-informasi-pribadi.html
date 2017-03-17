@@ -1,26 +1,29 @@
 <div class="form-group">
-    <input type="text" class="form-control" placeholder="Nama Panggilan"/>
+    <input type="text" class="form-control" placeholder="Nama Panggilan" ng-model="formDataProspek.namapanggilan"/>
 </div>
 <div class="form-group">
-    <input type="text" class="form-control" placeholder="Nama Lengkap"/>
+    <input type="text" class="form-control" placeholder="Nama Lengkap" ng-model="formDataProspek.namalengkap"/>
 </div>
 <div class="form-group">
     <ul class="list-inline">
         <li>
-            <input type="radio"/>
+            <input type="radio" name="jeniskelamin" ng-model="formDataProspek.jeniskelamin"/>
             <label>Laki-laki</label>
         </li>
         <li>
-            <input type="radio"/>
+            <input type="radio" name="jeniskelamin" ng-model="formDataProspek.jeniskelamin"/>
             <label>Perempuan</label>
         </li>
     </ul>
 </div>
 <div class="form-group">
-    <input type="text" class="form-control" placeholder="Tempat Tanggal Lahir"/>
+    <input type="text" class="form-control" placeholder="Tempat Lahir" ng-model="formDataProspek.tempatlahir"/>
 </div>
 <div class="form-group">
-    <select class="form-control" placeholder="Status Perkawinan">
+    <input type="date" class="form-control" placeholder="Tanggal Lahir" ng-model="formDataProspek.tempatlahir"/>
+</div>
+<div class="form-group">
+    <select class="form-control" placeholder="Status Perkawinan" ng-model="formDataProspek.statusperkawinan">
         <option>Kawin</option>
         <option>Belum Kawin</option>
         <option>Duda</option>
@@ -28,22 +31,23 @@
     </select>
 </div>
 <div class="form-group">
-    <input type="text" class="form-control" placeholder="Nama Ibu Kandung"/>
+    <input type="text" class="form-control" placeholder="Nama Ibu Kandung" ng-model="formDataProspek.namaibukandung"/>
 </div>
 <div class="form-group">
     <ul class="list-inline">
         <li>
-            <input type="radio"/>
+            <input type="radio" name="kewarganegaraan" ng-model="formDataProspek.kewarganegaraan"/>
             <label>WNA</label>
         </li>
         <li>
-            <input type="radio"/>
+            <input type="radio" name="kewarganegaraan" ng-model="formDataProspek.kewarganegaraan"/>
             <label>WNI</label>
         </li>
     </ul>
 </div>
 <div class="form-group">
-    <select class="form-control" placeholder="Agama">
+    <select class="form-control" placeholder="Agama" ng-model="formDataProspek.agama">
+        <option selected>-- Agama --</option>
         <option>Islam</option>
         <option>Katolik</option>
         <option>Protestan</option>

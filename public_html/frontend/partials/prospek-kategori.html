@@ -1,18 +1,18 @@
 <div class="form-group">
-    <select class="form-control" placeholder="Kode Golongan" >
+    <select class="form-control" placeholder="Kode Golongan" ng-model="formDataProspek.kodegolongan" >
         <option>INDIVIDU</option>
         <option>LEMBAGA</option>
     </select>
 </div>
 <div class="form-group">
-    <select class="form-control" placeholder="Jenis Prospek" >
+    <select class="form-control" placeholder="Jenis Prospek" ng-model="formDataProspek.jenisprospek" >
         <option>BARU</option>
         <option>TOP UP</option>
         <option>3R</option>
     </select>
 </div>
 <div class="form-group form-group-btn-step">
-    <a ui-sref="prospek" class="btn btn-primary btn-prev">
+    <a ui-sref="prospek.mandatory" class="btn btn-primary btn-prev">
         <span class="ion ion-ios-arrow-left"></span>
     </a>
     <a ui-sref="prospek.informasipribadi" class="btn btn-primary btn-next">

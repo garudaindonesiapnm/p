@@ -1,21 +1,68 @@
-<form>
-    <div class="form-group">
-        <input type="type" class="form-control" placeholder="Nama" />
-    </div>
-    <div class="form-group">
-        <input type="date" class="form-control" placeholder="Tanggal Lahir" />
-    </div>
-    <div class="form-group">
-        <input type="type" class="form-control" placeholder="Nomor Telpon" />
-    </div>
-    <div class="form-group">
-        <a class="btn btn-primary">
-            <span class="ion ion"></span>
-        </a>
-    </div>
-    <div class="form-group">
-        <button class="btn btn-primary">
-            
-        </button>
-    </div>
-</form>
+<div class="form-group">
+    <input type="text" class="form-control" placeholder="Nama Panggilan" ng-model="formDataProspek.namapanggilan" required/>
+</div>
+<div class="form-group">
+    <input type="text" class="form-control" placeholder="Nama Lengkap" ng-model="formDataProspek.namalengkap" required/>
+</div>
+<div class="form-group">
+    <ul class="list-inline">
+        <li>
+            <input type="radio" name="jeniskelamin" ng-model="formDataProspek.jeniskelamin" required/>
+            <label>Laki-laki</label>
+        </li>
+        <li>
+            <input type="radio" name="jeniskelamin" ng-model="formDataProspek.jeniskelamin" required/>
+            <label>Perempuan</label>
+        </li>
+    </ul>
+</div>
+<div class="form-group">
+    <input type="text" class="form-control" placeholder="Tempat Lahir" ng-model="formDataProspek.tempatlahir" required/>
+</div>
+<div class="form-group">
+    <label class="small text-muted">Tanggal lahir</label>
+    <input type="date" class="form-control" placeholder="Tanggal Lahir" ng-model="formDataProspek.tanggallahir" required/>
+</div>
+<div class="form-group">
+    <select class="form-control" placeholder="Status Perkawinan" ng-model="formDataProspek.statusperkawinan" required>
+        <option>Kawin</option>
+        <option>Belum Kawin</option>
+        <option>Duda</option>
+        <option>Janda</option>
+    </select>
+</div>
+<div class="form-group">
+    <input type="text" class="form-control" placeholder="Nama Ibu Kandung" ng-model="formDataProspek.namaibukandung" required/>
+</div>
+<div class="form-group">
+    <ul class="list-inline">
+        <li>
+            <input type="radio" name="kewarganegaraan" ng-model="formDataProspek.kewarganegaraan" required/>
+            <label>WNA</label>
+        </li>
+        <li>
+            <input type="radio" name="kewarganegaraan" ng-model="formDataProspek.kewarganegaraan" required/>
+            <label>WNI</label>
+        </li>
+    </ul>
+</div>
+<div class="form-group">
+    <select class="form-control" placeholder="Agama" ng-model="formDataProspek.agama" required>
+        <option selected>-- Agama --</option>
+        <option>Islam</option>
+        <option>Katolik</option>
+        <option>Protestan</option>
+        <option>Hindu</option>
+        <option>Budha</option>
+    </select>
+</div>
+
+<div class="form-group form-group-btn-step text-center">
+    <button class="btn btn-primary pull-left" ng-submit="processFormProspekMandatory()">
+        Simpan
+    </button>
+    <span>atau</span>
+    <a ui-sref="prospek.kategori" class="btn btn-primary btn-next">
+       Lengkapi <span class="ion ion-ios-arrow-right"></span>
+    </a>
+</div>

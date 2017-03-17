@@ -16,10 +16,9 @@ App.config( function($stateProvider, $urlRouterProvider) {
             templateUrl: 'partials/prospek.html',
             controller: 'prospekCtrl'
         })
-        .state('prospekmandatory', {
-            url: '/prospek',
+        .state('prospek.mandatory', {
+            url: '/prospek-mandatory',
             templateUrl: 'partials/prospek-mandatory.html',
-            controller: 'prospekCtrl'
         })
         .state('prospek.kategori', {
             url: '/prospek-kategori',
@@ -66,22 +65,33 @@ App.config( function($stateProvider, $urlRouterProvider) {
             templateUrl: 'partials/prospek-submit.html'
         })
         
+        /* KELUARGA */
         .state('keluarga', {
             url: '/keluarga-data',
-            templateUrl: 'partials/prospek-submit.html'
+            templateUrl: 'partials/keluarga-data.html'
         })
-        
-        ;
+        .state('keluarga.hubungan', {
+            url: '/keluarga-hubungan',
+            templateUrl: 'partials/keluarga-hubungan.html'
+        })
+        .state('keluarga.hubunganlain', {
+            url: '/keluarga-hubungan-lain',
+            templateUrl: 'partials/keluarga-hubungan-lain.html'
+        });
         
         $urlRouterProvider.otherwise('/');
 });
 
 App.controller('prospekCtrl', function($scope) {
 
-    $scope.formData = {};
+    $scope.formDataProspek = {};
 
     $scope.processFormProspek = function() {
-         
+         console.log($scope.formDataProspek);
+    };
+    
+    $scope.processFormProspekMandatory = function() {
+         console.log($scope.formDataProspek);
     };
     
 });
