@@ -12,7 +12,8 @@ and open the template in the editor.
 /* COLOR */
 
 $clr-pnm-blue: #0066b2;
-$clr-pnm-green: #a6ce37; 
+$clr-pnm-green: #a6ce37;
+$clr-pnm-green-smooth: #e7ffa5;
 
 html,body {
     height: 100%;
@@ -27,7 +28,7 @@ body {
 .container {
     
     &.container-body {
-        min-height: 100%;
+        min-height: 85%;
     }
     
 }
@@ -382,10 +383,11 @@ body {
     &.page-header-form {
         float: left;
         width: 100%;
+        margin-top: 10px;
         
         h1 {
             text-align: center;
-            margin: 20px 0;
+            margin: 20px 0 40px 0;
         }
     }
     
@@ -479,10 +481,27 @@ hr,.hr {
 /* HOME */
 
 .hm-tt {
-    font-size: 80px;
+    font-size: 30px;
     font-weight: bold;
     text-align: center;
     padding: 40px;
+}
+
+.hm-lg {
+    position: relative;
+    height: 80px;
+    text-align: center;
+    
+    img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
 }
 
 .list-menu-hm {
@@ -491,7 +510,7 @@ hr,.hr {
         position: relative;
         width: 50%;
         float: left;
-        padding: 10px;
+        padding: 15px 20px;
         
         &:before {
             content: '';
@@ -505,7 +524,7 @@ hr,.hr {
             margin-left: 0;
             height: 1px;
             $color-phl-start: #fff;
-            $color-phl-end: #f5f5f5;
+            $color-phl-end: $clr-pnm-green-smooth;
             background: $color-phl-start;
             background: -moz-linear-gradient(left,$color-phl-start 0,$color-phl-end 100%);
             background: -webkit-gradient(linear,left top,right top,color-stop(0%,$color-phl-start),color-stop(100%,$color-phl-end));
@@ -523,6 +542,7 @@ hr,.hr {
             float: right;
             margin-right: 20px;
             border-radius: 50%;
+            border: 1px solid $clr-pnm-green;
         }
         .tt {
             font-size: 20px;
@@ -626,6 +646,7 @@ hr,.hr {
 
 .container-footer {
     width: 100%;
+    margin-top: 30px;
     
     .ul-footer {
         padding: 20px 0;
@@ -701,6 +722,26 @@ hr,.hr {
                 }
             }
         }
+    }
+    
+    /* HOME MOBILE */
+    
+    .list-menu-hm {
+        
+        li {
+            text-align: center;
+            
+            .sprite {
+                display: inline-block;
+                float: left;
+                margin: 0;
+            }
+            
+            .tt {
+                display: block;
+            }
+        }
+        
     }
 
 }

@@ -82,7 +82,49 @@ App.config( function($stateProvider, $urlRouterProvider) {
         .state('keluarga.hubunganlain', {
             url: '/keluarga-hubungan-lain',
             templateUrl: 'partials/keluarga-hubungan-lain.html'
-        });
+        })
+        
+        /* APLIKASI */
+        .state('aplikasi', {
+            url: '/aplikasi',
+            templateUrl: 'partials/aplikasi.html',
+            controller: 'aplikasiCtrl'
+        })
+        .state('aplikasi.informasipembiayaan', {
+            url: '/aplikasi-informasi-pembiayaan',
+            templateUrl: 'partials/aplikasi-informasi-pembiayaan.html'
+        })
+        .state('aplikasi.datapembiayaan', {
+            url: '/aplikasi-data-pembiayaan',
+            templateUrl: 'partials/aplikasi-data-pembiayaan.html'
+        })
+        .state('aplikasi.informasiusaha', {
+            url: '/aplikasi-informasi-usaha',
+            templateUrl: 'partials/aplikasi-informasi-usaha.html'
+        })
+        
+        /* AGUNAN */
+        .state('agunan', {
+            url: '/agunan',
+            templateUrl: 'partials/agunan.html',
+            controller: 'agunanCtrl'
+        })
+        
+        /* DOKUMEN */
+         .state('dokumen', {
+            url: '/dokumen',
+            templateUrl: 'partials/dokumen.html',
+            controller: 'dokumenCtrl'
+        })
+        
+        /* AOM */
+        .state('aom', {
+            url: '/aom',
+            templateUrl: 'partials/aom.html',
+            controller: 'aomCtrl'
+        })
+        
+        ;
         
         $urlRouterProvider.otherwise('/');
 });
