@@ -213,6 +213,40 @@ App.controller('aomCtrl', function($scope) {
     
 });
 
+/*  ========================================================
+ *  GLOBAL MODAL 
+ *  ======================================================== */
+
+var GmObjectInfoInstance;
+
+App.factory('sh', function($uibModal){
+    function openModal(page){
+        return $uibModal.open({
+            animation: true,
+            templateUrl: page,
+            backdrop: 'static',
+            keyboard: false
+        });       
+    }
+    return {
+        openModal: openModal
+    };
+});
+
+App.controller('mdl',function ($scope,sh) {
+    this.showObjectInfo = function () {
+        console.log($scope.modalTemplate);
+        GmObjectInfoInstance = sh.openModal($scope.modalTemplate);
+        
+        GmObjectInfoInstance.result.then(function () {
+            console.log("blah");
+        });
+    };
+    this.onCancelBtnClick = function(){
+        GmObjectInfoInstance.close();
+    };  
+});
+
 
 
 

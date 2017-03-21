@@ -13,7 +13,8 @@ html, body {
   height: 100%; }
 
 body {
-  padding-top: 50px; }
+  padding-top: 50px;
+  background: #f5fbff; }
 
 /* CONTAINER */
 .container.container-body {
@@ -247,20 +248,69 @@ body {
     color: #333;
     font-weight: bold; }
 
+/* BOX SHADOW */
+.box-shadow {
+  -webkit-box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16);
+  -moz-box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16);
+  box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16); }
+
 /* PAGE HEADER */
 .page-header.page-header-form {
+  position: relative;
   float: left;
   width: 100%;
   margin-top: 10px; }
   .page-header.page-header-form h1 {
     text-align: center;
     margin: 20px 0 40px 0; }
+  .page-header.page-header-form .ph-ac {
+    position: absolute;
+    top: 0;
+    right: 0; }
+    .page-header.page-header-form .ph-ac > li {
+      cursor: pointer;
+      border-radius: 50%;
+      background: #fff;
+      padding: 5px;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px; }
+      .page-header.page-header-form .ph-ac > li .glyphicon, .page-header.page-header-form .ph-ac > li .ion {
+        font-size: 25px; }
 
 /* FORM GROUP */
 .form-group.form-group-btn-step .btn-prev {
   float: left; }
 .form-group.form-group-btn-step .btn-next {
   float: right; }
+.form-group > label {
+  color: #777;
+  font-weight: normal;
+  font-size: 12px; }
+
+/* FORM CONTROL */
+.form-control, .form-control:focus,
+.input-group-sm > .form-control, .input-group-sm > .form-control:focus,
+.input-group-sm > .input-group-addon, .input-group-sm > .input-group-addon:focus,
+.form-group-sm .form-control, .form-group-sm .form-control:focus {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border-radius: 1px; }
+
+.form-control,
+.input-group-sm > .form-control,
+.input-group-sm > .input-group-addon,
+.form-group-sm .form-control {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #fbfbfb;
+  border-color: #ccc; }
+  .form-control:focus,
+  .input-group-sm > .form-control:focus,
+  .input-group-sm > .input-group-addon:focus,
+  .form-group-sm .form-control:focus {
+    border-color: #0066b2; }
 
 /* HR */
 hr.awesome, .hr.awesome {
@@ -292,13 +342,13 @@ hr.awesome, .hr.awesome {
     height: 3px;
     border-radius: 2px;
     background: #f5f5f5;
-    background: -moz-linear-gradient(left, white 0, #f5f5f5 50%, white 100%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%, white), color-stop(0%, #f5f5f5), color-stop(100%, white));
-    background: -webkit-linear-gradient(left, white 0, #f5f5f5 50%, white 100%);
-    background: -o-linear-gradient(left, white 0, #f5f5f5 50%, white 100%);
-    background: -ms-linear-gradient(left, white 0, #f5f5f5 50%, white 100%);
-    background: linear-gradient(to right, white 0, #f5f5f5 50%, white 100%);
-    background: linear-gradient(to right, white 0, #f5f5f5 50%, white 100%); }
+    background: -moz-linear-gradient(left, #f5fbff 0, #f5f5f5 50%, white 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #f5fbff), color-stop(0%, #f5f5f5), color-stop(100%, #f5fbff));
+    background: -webkit-linear-gradient(left, #f5fbff 0, #f5f5f5 50%, #f5fbff 100%);
+    background: -o-linear-gradient(left, white 0, #f5f5f5 50%, #f5fbff 100%);
+    background: -ms-linear-gradient(left, white 0, #f5f5f5 50%, #f5fbff 100%);
+    background: linear-gradient(to right, white 0, #f5f5f5 50%, #f5fbff 100%);
+    background: linear-gradient(to right, white 0, #f5f5f5 50%, #f5fbff 100%); }
   .list-inline.list-inline-alt-psk li {
     width: 33.33%;
     font-size: 12px;
@@ -459,6 +509,9 @@ hr.awesome, .hr.awesome {
 
 /*============== MOBILE CSS ===============*/
 @media (max-width: 992px) {
+  html {
+    -webkit-overflow-scrolling: touch; }
+
   /* CONTAINER */
   .container {
     padding-left: 0;
@@ -501,6 +554,9 @@ hr.awesome, .hr.awesome {
             float: none; }
 
   /* HOME MOBILE */
+  .hm-lg {
+    margin-top: -30px; }
+
   .hm-tt {
     background: #a6ce37;
     margin-bottom: 0;
@@ -529,6 +585,10 @@ hr.awesome, .hr.awesome {
       .list-menu-hm li .tt {
         display: block;
         font-size: 14px;
-        color: #fff; } }
+        color: #fff; }
+
+  /* STEP MOBILE */
+  .step.step-9 a {
+    font-size: 5px; } }
 
 /*# sourceMappingURL=app.css.map */

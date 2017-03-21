@@ -3,6 +3,11 @@
     <div class="col-sm-8 col-sm-offset-2">
         <div class="page-header page-header-form">
             <h1>Prospek</h1>
+            <ul class="list-inline ph-ac">
+                <li class="box-shadow" ng-controller="mdl as m" ng-click="m.showObjectInfo();" ng-init="modalTemplate='partials/modals/modal-global.html'">
+                    <span class="ion ion-ios-list-outline"></span>
+                </li>
+            </ul>
             <ng-include src="'partials/prospek-step.html'"></ng-include>
         </div>
         <div class="page-body">
@@ -12,4 +17,5 @@
         </div>
     </div>
 </div>
+<div ng-controller="ModalDemoCtrl as $ctrl" class="modal-prospek"></div>
 
