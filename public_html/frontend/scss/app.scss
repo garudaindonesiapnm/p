@@ -14,14 +14,16 @@ and open the template in the editor.
 $clr-pnm-blue: #0066b2;
 $clr-pnm-green: #a6ce37;
 $clr-pnm-green-smooth: #e7ffa5;
-$clr-bg-body: #f5fbff;
+$clr-bg-body: #fafafa;
+$clr-hr-side: $clr-pnm-green;
+$clr-hr-mid: rgb(86, 161, 218);
 
 html,body {
     height: 100%;
 }
 
 body {
-    padding-top: 50px;
+    padding-top: 43px;
     background: $clr-bg-body;
 }
 
@@ -31,6 +33,107 @@ body {
     
     &.container-body {
         min-height: 85%;
+    }
+    
+}
+
+/* TABLE */
+
+.table {
+    &.table-hidden-overflow {
+        overflow: hidden;
+    }
+}
+
+/* MODAL */
+
+.modal {
+    
+    &.modal-right {
+        .modal-dialog {
+            margin-top: 0;
+            margin-right: 0;
+            margin-bottom: 0;
+            height: 100%;
+            width: 50%;
+            
+            .modal-content {
+                height: 100%;
+                width: 100%;
+                border-radius: 0;
+                border: none;
+                position: relative;
+                overflow: hidden;
+                
+                .modal-header {
+                    height: 50px;
+                    background: $clr-pnm-blue;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    padding: 0 15px;
+                    z-index: 1;
+                    
+                    .list-inline {
+                            margin: 0;
+                            padding-left: 0;
+                            margin-left: -5px;
+                            list-style: none;
+                            height: 100%;
+                        
+                        li {
+                            color: #fff;
+                            position: relative;
+                            height: 100%;
+                            padding: 12.5px 10px;
+                            
+                            input {
+                                height: 100%;
+                                border: 1px solid #e7ffa5;
+                                border-radius: 2px;
+                                color: #333;
+                                -webkit-appearance: none;
+                                appearance: none;
+                            }
+                            
+                            &.right {
+                                float: right;
+                            }
+                        }
+                    }
+                    
+                }
+                
+                .modal-body {
+                    height: auto;
+                    position: absolute;
+                    top: 50px;
+                    bottom: 50px;
+                    right: 0;
+                    left: 0;
+                    overflow: auto;
+                    overflow-x: hidden;
+                }
+                .modal-footer {
+                    height: 50px;
+                    background: #f5f5f5;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    padding: 0 15px;
+                    line-height: 50px;
+                }
+            }
+        }
+    }
+    
+    &.fade-right.fade:not(.in)  { 
+        .modal-dialog {
+            -webkit-transform: translate3d(75%, 0, 0);
+            transform: translate3d(75%, 0, 0);
+        }
     }
     
 }
@@ -394,37 +497,47 @@ body {
         position: relative;
         float: left;
         width: 100%;
-        margin-top: 10px;
+        border: none;
+        /*background: #ddecf7;*/
+        margin: 0;
+        margin-bottom: 15px;
+        background: #fff;
+        border-bottom: 1px solid #f1f1f1;
         
-        h1 {
-            text-align: center;
-            margin: 20px 0 40px 0;
-        }
-        
-        .ph-ac {
-            position: absolute;
-            top: 0;
-            right: 0;
+        .bx-ph {
+            z-index: 1;
+            float: left;
+            width: 100%;
             
-            > li {
-                cursor: pointer;
-                border-radius: 50%;
-                background: #fff;
-                padding: 5px;
-                width: 50px;
-                height: 50px;
+            h1 {
                 text-align: center;
-                line-height: 50px;
-                
-                .glyphicon,.ion {
-                    font-size: 25px;
+                margin: 20px 0 40px 0;
+            }
+
+            .ph-ac {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+
+                > li {
+                    cursor: pointer;
+                    border-radius: 50%;
+                    background: #fff;
+                    padding: 5px;
+                    width: 50px;
+                    height: 50px;
+                    text-align: center;
+                    line-height: 50px;
+
+                    .glyphicon,.ion {
+                        font-size: 25px;
+                    }
                 }
             }
         }
+
     }
-    
-    
-    
+      
 }
 
 /* FORM GROUP */
@@ -475,16 +588,21 @@ body {
 
 /* HR */
 
-hr,.hr {
+hr {
     &.awesome {
-        background: #f5f5f5;
-        background: -moz-linear-gradient(left, white 0, #f5f5f5 50%, white 100%);
-        background: -webkit-gradient(linear, left top, right top, color-stop(0%, white),color-stop(0%, #f5f5f5), color-stop(100%, white));
-        background: -webkit-linear-gradient(left, white 0, #f5f5f5 50%, white 100%);
-        background: -o-linear-gradient(left, white 0, #f5f5f5 50%, white 100%);
-        background: -ms-linear-gradient(left, white 0, #f5f5f5 50%, white 100%);
-        background: linear-gradient(to right, white 0, #f5f5f5 50%, white 100%);
-        background: linear-gradient(to right, white 0, #f5f5f5 50%, white 100%);
+        border: none;
+        height: 3px;
+        float: left;
+        width: 100%;
+        margin: 10px 0;
+        background: $clr-hr-side;
+        background: -moz-linear-gradient(left, $clr-hr-side 0, $clr-hr-mid 50%, $clr-hr-side 100%);
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%, $clr-hr-side),color-stop(0%, $clr-hr-mid), color-stop(100%, $clr-hr-side));
+        background: -webkit-linear-gradient(left, $clr-hr-side 0, $clr-hr-mid 50%, $clr-hr-side 100%);
+        background: -o-linear-gradient(left, $clr-hr-side 0, $clr-hr-mid 50%, $clr-hr-side 100%);
+        background: -ms-linear-gradient(left, $clr-hr-side 0, $clr-hr-mid 50%, $clr-hr-side 100%);
+        background: linear-gradient(to right, $clr-hr-side 0, $clr-hr-mid 50%, $clr-hr-side 100%);
+        background: linear-gradient(to right, $clr-hr-side 0, $clr-hr-mid 50%, $clr-hr-side 100%);
     }
 }
 
@@ -495,6 +613,7 @@ hr,.hr {
         position: relative;
         font-size: 0px;
         padding: 20px;
+        padding-top: 0;
         
         &:before {
             content: '';
@@ -533,6 +652,66 @@ hr,.hr {
             }
         }
         
+    }
+}
+
+/* BACKGROUND ANIMATION */
+
+$clr-bg-animation-1: rgb(35, 171, 204);
+$clr-bg-animation-2: rgb(50, 178, 205);
+$clr-bg-animation-3: rgb(40, 196, 204);
+
+.background-animation{
+    overflow: hidden;
+    display:block;
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    
+    .lyr{
+        background: -webkit-radial-gradient(70% 70% ellipse,$clr-bg-animation-1 8%,$clr-bg-animation-2 42%,$clr-bg-animation-3 58%);
+        background: radial-gradient(ellipse at 70% 70%,$clr-bg-animation-1 8%,$clr-bg-animation-2 42%,$clr-bg-animation-3 58%);
+        height: 100%;
+        pointer-events: none;
+        position: absolute;
+        width: 100%
+    }
+    .lyr-conf{
+        -webkit-animation: GradientRotation 12s steps(120) infinite;
+        animation: GradientRotation 12s steps(120) infinite;
+        margin-left: -25%;
+        margin-top:-75%;
+        min-height:150%;
+        min-width:150%;
+        padding-bottom:75%;
+        padding-top:75%
+    }
+    .bac-text{
+        z-index:1;
+    }
+}
+
+@-webkit-keyframes GradientRotation{
+    0%{
+        -webkit-transform:rotate(0deg);
+        transform:rotate(0deg);
+    }to{
+        -webkit-transform:rotate(360deg);
+        transform:rotate(360deg);
+    }
+}
+@keyframes GradientRotation{
+    0%{
+        -webkit-transform:rotate(0deg);
+        transform:rotate(0deg);
+    }to{
+        -webkit-transform:rotate(360deg);
+        transform:rotate(360deg);
     }
 }
 
@@ -804,6 +983,23 @@ hr,.hr {
         padding-left: 0;
     }
     
+    /* MODAL MOBILE */
+    
+    .modal {
+        &.modal-right {
+            
+            .modal-dialog {
+                width: 100%;
+                margin-left: 0;
+                
+                .modal-content {
+                    
+                }
+            }
+        }
+        
+    }
+    
     /* APP NAVBAR */
     
     .ap-navbar {
@@ -826,6 +1022,7 @@ hr,.hr {
                         margin: auto;
                         width: auto;
                         border-radius: 0;
+                        border-top: 1px solid #ddd;
                     }
                 }
                 
@@ -927,6 +1124,7 @@ hr,.hr {
         &.step-9 {
             a {
                 font-size: 5px;
+                font-weight: bold;
             }
         }
         

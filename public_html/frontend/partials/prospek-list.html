@@ -1,0 +1,33 @@
+<ng-include src="'partials/navbar.html'"></ng-include>
+<div class="container container-fluid page-header page-header-form">
+    <div class="bx-ph">
+        <h1>PROSPEK LIST</h1>
+    </div>
+</div>
+<div class="container container-body">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table wt-responsive-table class="table table-striped table-hidden-overflow">
+                    <tr>
+                        <th>#</th>
+                        <th>ID SDM</th>
+                        <th>Jabatan</th>
+                        <th>Nomor SK</th>
+                        <th>#</th>
+                    </tr>
+                    <tr ng-repeat="prospekRow in prospekList">
+                        <td>{{prospekRow.id}}</td>
+                        <td>{{prospekRow.idsdm}}</td>
+                        <td>{{prospekRow.jabatan}}</td>
+                        <td>{{prospekRow.nomor_sk}}</td>
+                        <td>
+                            <a ui-sref="prospekperorang">Edit</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        </table>
+    </div>
+</div>

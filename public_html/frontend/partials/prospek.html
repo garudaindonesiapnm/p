@@ -1,15 +1,32 @@
-<div class="container container-body">
-    <ng-include src="'partials/navbar.html'"></ng-include>
-    <div class="col-sm-8 col-sm-offset-2">
-        <div class="page-header page-header-form">
+<div class="container container-fluid page-header page-header-form">
+    <div class="col-md-12">
+        <div class="bx-ph">
             <h1>Prospek</h1>
             <ul class="list-inline ph-ac">
-                <li class="box-shadow" ng-controller="mdl as m" ng-click="m.showObjectInfo();" ng-init="modalTemplate='partials/modals/modal-global.html'">
+                <li class="box-shadow" ng-controller="modalCtrl as m" ng-click="m.showObjectInfo();" 
+                    ng-init="
+                        modalTemplate='partials/modals/modal-prospek-list.html'; 
+                        modalClass='modal-right fade-right modal-prospek-list'; 
+                        modalController='modalProspekListCtrl'
+                ">
                     <span class="ion ion-ios-list-outline"></span>
                 </li>
             </ul>
-            <ng-include src="'partials/prospek-step.html'"></ng-include>
         </div>
+        <!--
+        <div class="background-animation">
+            <div class="lyr lyr-conf"></div>
+        </div>-->
+    </div>
+    <div class="col-md-12">
+        <ng-include src="'partials/prospek-step.html'"></ng-include>
+        <hr class="awesome">
+    </div>
+</div>
+<div class="container container-body">
+    <ng-include src="'partials/navbar.html'"></ng-include>
+    
+    <div class="col-md-8 col-md-offset-2">
         <div class="page-body">
             <form id="form-prospek" ng-submit="processFormProspek()">
                 <div class="col-md-6 col-md-offset-3" ui-view></div>
@@ -17,5 +34,4 @@
         </div>
     </div>
 </div>
-<div ng-controller="ModalDemoCtrl as $ctrl" class="modal-prospek"></div>
 

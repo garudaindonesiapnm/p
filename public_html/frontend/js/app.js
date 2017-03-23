@@ -1,13 +1,25 @@
-var App = angular.module('App', ['ngAnimate' , 'angularMoment', 'ui.bootstrap', 'ui.router']);
+var App = angular.module('App', ['ngAnimate' , 'angularMoment', 'ui.bootstrap', 'ui.router', 'wt.responsive']);
 
-App.config( function($stateProvider, $urlRouterProvider) {
+App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
         
     $stateProvider
     
+        /* LOGIN */
+        .state('login', {
+            url: '/',
+            templateUrl: 'partials/login.html'
+        })
+    
         /* HOME */
         .state('home', {
-            url: '/',
+            url: '/home',
             templateUrl: 'partials/home.html'
+        })
+        
+        /* HOME */
+        .state('home2', {
+            url: '/home2',
+            templateUrl: 'partials/home2.html'
         })
         
         /* PROSPEK */
@@ -19,6 +31,10 @@ App.config( function($stateProvider, $urlRouterProvider) {
         .state('prospek.mandatory', {
             url: '/prospek-mandatory',
             templateUrl: 'partials/prospek-mandatory.html',
+            params: {
+                id : null,
+                nomor_sk : null
+            }
         })
         .state('prospek.kategori', {
             url: '/prospek-kategori',
@@ -63,6 +79,19 @@ App.config( function($stateProvider, $urlRouterProvider) {
         .state('prospek.submit', {
             url: '/prospek-submit',
             templateUrl: 'partials/prospek-submit.html'
+        })
+        
+        /* PROSPEK LIST */
+        .state('prospeklist', {
+            url: '/prospek-list',
+            templateUrl: 'partials/prospek-list.html',
+            controller: 'prospekListCtrl'
+        })
+        
+        /* PROSPEK PER ORANG*/
+        .state('prospekperorang', {
+            url: '/prospek-per-orang',
+            templateUrl: 'partials/prospek-per-orang.html',
         })
         
         /* KELUARGA */
@@ -127,21 +156,95 @@ App.config( function($stateProvider, $urlRouterProvider) {
         ;
         
         $urlRouterProvider.otherwise('/');
+
 });
 
-App.controller('prospekCtrl', function($scope) {
-
-    $scope.formDataProspek = {};
-
-    $scope.processFormProspek = function() {
-         console.log($scope.formDataProspek);
+App.factory("apiData", function ($http) {
+    
+    var apiData = function(scope,api){
+        
+        scope.loadloop = 0;
+        
+        scope.load = function(){
+            scope.loaded = false;
+            scope.error = false;
+            $http
+                .get(api,{ headers: { 'Cache-Control' : 'no-cache' } , cache : false })
+                .success(function(response) {
+                    scope.responseApi = response;
+                });
+        };
+        scope.load();
     };
     
-    $scope.processFormProspekMandatory = function() {
-         console.log($scope.formDataProspek);
+    return (apiData);
+});
+
+App.factory('globalFunction',function(){
+    
+    return {
+        serializeObj : function(obj) {
+            var result = [];
+
+            for (var property in obj)
+                result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
+
+            return result.join("&");
+        }
     };
     
 });
+
+App.controller('prospekCtrl', function($scope,$http,globalFunction) {
+
+        $scope.formDataProspek = {};
+
+        $scope.processFormProspek = function() {
+            console.log($scope.formDataProspek);
+            var api = "http://192.168.10.180/bwmp/index.php/api/bwmp/updateUser";
+
+            $http({
+                method: 'POST',
+                url: api,
+                headers: {
+                    'Content-Type':'application/x-www-form-urlencoded'
+                    //'Content-Type': 'application/json; charset=utf-8'
+                    //'Content-Type':'application/json'
+                },
+                data: globalFunction.serializeObj($scope.formDataProspek)
+            }).then(function(R){
+                console.log(R);
+            }, function myError(R){
+                console.log(R);
+            });
+            
+        };
+
+        $scope.processFormProspekMandatory = function() {
+             console.log($scope.formDataProspek);
+        };
+
+    })
+        
+    .controller('modalProspekListCtrl',function($http,$scope){
+        
+        var api = 'http://192.168.10.180/bwmp/index.php/api/bwmp/allUser/format/json';
+
+        $http({
+            method : "GET",
+            url : api,
+            dataType: 'json'
+        }).then(function mySucces(R) {
+            $scope.prospekList = R.data;
+            console.log($scope.prospekList); 
+        }, function myError(R) {
+            $scope.prospekList = R.statusText;
+        });
+           
+        //$scope.prospekList = new apiData($scope,api);
+       
+    });
+
 
 App.controller('keluargaCtrl', function($scope) {
 
@@ -213,6 +316,23 @@ App.controller('aomCtrl', function($scope) {
     
 });
 
+App.controller('prospekListCtrl', function($scope,$http){
+    
+    var api = 'http://192.168.10.180/bwmp/index.php/api/bwmp/allUser/format/json';
+
+    $http({
+        method : "GET",
+        url : api,
+        dataType: 'json'
+    }).then(function mySucces(R) {
+        $scope.prospekList = R.data;
+        console.log($scope.prospekList); 
+    }, function myError(R) {
+        $scope.prospekList = R.statusText;
+    });
+    
+});
+
 /*  ========================================================
  *  GLOBAL MODAL 
  *  ======================================================== */
@@ -220,12 +340,14 @@ App.controller('aomCtrl', function($scope) {
 var GmObjectInfoInstance;
 
 App.factory('sh', function($uibModal){
-    function openModal(page){
+    function openModal(page,cls,ctrl){
         return $uibModal.open({
             animation: true,
             templateUrl: page,
             backdrop: 'static',
-            keyboard: false
+            keyboard: false,
+            windowClass: cls,
+            controller: ctrl
         });       
     }
     return {
@@ -233,10 +355,10 @@ App.factory('sh', function($uibModal){
     };
 });
 
-App.controller('mdl',function ($scope,sh) {
+App.controller('modalCtrl',function ($scope,sh) {
     this.showObjectInfo = function () {
-        console.log($scope.modalTemplate);
-        GmObjectInfoInstance = sh.openModal($scope.modalTemplate);
+        
+        GmObjectInfoInstance = sh.openModal($scope.modalTemplate,$scope.modalClass,$scope.modalController);
         
         GmObjectInfoInstance.result.then(function () {
             console.log("blah");
@@ -246,6 +368,8 @@ App.controller('mdl',function ($scope,sh) {
         GmObjectInfoInstance.close();
     };  
 });
+
+
 
 
 
