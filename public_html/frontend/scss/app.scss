@@ -9,7 +9,7 @@ and open the template in the editor.
 
 */
 
-/* COLOR */
+/* VARIABLE */
 
 $clr-pnm-blue: #0066b2;
 $clr-pnm-green: #a6ce37;
@@ -17,6 +17,24 @@ $clr-pnm-green-smooth: #e7ffa5;
 $clr-bg-body: #fafafa;
 $clr-hr-side: $clr-pnm-green;
 $clr-hr-mid: rgb(86, 161, 218);
+
+/* MIXIN */
+
+@mixin background-2-color ($clrStart, $clrEnd){
+    background: $clrStart;
+    background: -moz-linear-gradient(left,$clrStart 0,$clrEnd 100%);
+    background: -webkit-gradient(linear,lbackgroundeft top,right top,color-stop(0%,$clrStart),color-stop(100%,$clrEnd));
+    background: -webkit-linear-gradient(left,$clrStart 0,$clrEnd 100%);
+    background: -o-linear-gradient(left,$clrStart 0,$clrEnd 100%);
+    background: -ms-linear-gradient(left,$clrStart 0,$clrEnd 100%);
+    background: linear-gradient(to right,$clrStart 0,$clrEnd 100%);
+}
+
+@mixin my-box-shadow(){
+    -webkit-box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16);
+    -moz-box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16);
+    box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16);
+}
 
 html,body {
     height: 100%;
@@ -137,6 +155,71 @@ body {
     }
     
 }
+
+/* PANEL */
+
+.panel {
+    &.panel-app {
+        border: none;
+        border-radius: 0;
+        @include my-box-shadow;
+    }
+    
+    &.panel-hm2lg {
+        .panel-body {
+            height: 500px;
+        }
+    }
+}
+
+/* LIST GROUP */
+
+.list-group {
+    &.list-group-hm2 {
+        border-left: 1px solid $clr-pnm-green;
+        border-radius: 0;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        
+        
+        .list-group-item {
+            position: relative;
+            padding: 35px;
+            font-size: 35px;
+            border: none;
+            border-radius: 0;
+            @include background-2-color(#fff,#fff);
+            @include my-box-shadow();
+            
+            &:before {
+                content: '';
+                z-index: 1;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 1px;
+                @include background-2-color($clr-pnm-green,transparent);
+            }
+            
+            &:last-child {
+                &:before {
+                    display: none;
+                }
+            }
+            
+            .sprite {
+                display: block;
+                height: 50px;
+                width: 50px;
+                background: #ddd;
+                float: right;
+            }
+        }
+    }
+}
+
+/* MAIN NAVBAR */
 
 /* APP NAVBAR */
 
@@ -559,6 +642,37 @@ body {
         font-weight: normal;
         font-size: 12px;
     }
+    
+    &.form-group-search-hm2 {
+        padding: 10px;
+        background: #fff;
+        @include my-box-shadow();
+        
+        .input-group {
+            input {
+                border: none;
+                background: transparent;
+            }
+            .input-group-btn {
+                button {
+                    background-image: none;
+                    border: none;
+                    box-shadow: none;
+                    -webkit-box-shadow: none;
+                    font-size: 20px;
+                    padding: 5px 20px;
+                    color: $clr-pnm-green;
+                    
+                    &:hover, &:focus , &:active {
+                        color: $clr-pnm-green-smooth;
+                        background: transparent;
+                        box-shadow: none;
+                        -webkit-box-shadow: none;
+                    }
+                }
+            }
+        }
+    }
 }
 
 /* FORM CONTROL */
@@ -771,7 +885,7 @@ $clr-bg-animation-3: rgb(40, 196, 204);
             $color-phl-end: $clr-pnm-green-smooth;
             background: $color-phl-start;
             background: -moz-linear-gradient(left,$color-phl-start 0,$color-phl-end 100%);
-            background: -webkit-gradient(linear,left top,right top,color-stop(0%,$color-phl-start),color-stop(100%,$color-phl-end));
+            background: -webkit-gradient(linear,lbackgroundeft top,right top,color-stop(0%,$color-phl-start),color-stop(100%,$color-phl-end));
             background: -webkit-linear-gradient(left,$color-phl-start 0,$color-phl-end 100%);
             background: -o-linear-gradient(left,$color-phl-start 0,$color-phl-end 100%);
             background: -ms-linear-gradient(left,$color-phl-start 0,$color-phl-end 100%);

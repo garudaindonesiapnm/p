@@ -8,7 +8,8 @@ and open the template in the editor.
     Author     : PT Permodalan Nasional Madani (PERSERO)
 
 */
-/* COLOR */
+/* VARIABLE */
+/* MIXIN */
 html, body {
   height: 100%; }
 
@@ -89,6 +90,63 @@ body {
   -webkit-transform: translate3d(75%, 0, 0);
   transform: translate3d(75%, 0, 0); }
 
+/* PANEL */
+.panel.panel-app {
+  border: none;
+  border-radius: 0;
+  -webkit-box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16);
+  -moz-box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16);
+  box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16); }
+.panel.panel-hm2lg .panel-body {
+  height: 500px; }
+
+/* LIST GROUP */
+.list-group.list-group-hm2 {
+  border-left: 1px solid #a6ce37;
+  border-radius: 0;
+  box-shadow: none;
+  -webkit-box-shadow: none; }
+  .list-group.list-group-hm2 .list-group-item {
+    position: relative;
+    padding: 35px;
+    font-size: 35px;
+    border: none;
+    border-radius: 0;
+    background: #fff;
+    background: -moz-linear-gradient(left, #fff 0, #fff 100%);
+    background: -webkit-gradient(linear, lbackgroundeft top, right top, color-stop(0%, #fff), color-stop(100%, #fff));
+    background: -webkit-linear-gradient(left, #fff 0, #fff 100%);
+    background: -o-linear-gradient(left, #fff 0, #fff 100%);
+    background: -ms-linear-gradient(left, #fff 0, #fff 100%);
+    background: linear-gradient(to right, #fff 0, #fff 100%);
+    -webkit-box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16);
+    -moz-box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16);
+    box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16); }
+    .list-group.list-group-hm2 .list-group-item:before {
+      content: '';
+      z-index: 1;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: #a6ce37;
+      background: -moz-linear-gradient(left, #a6ce37 0, transparent 100%);
+      background: -webkit-gradient(linear, lbackgroundeft top, right top, color-stop(0%, #a6ce37), color-stop(100%, transparent));
+      background: -webkit-linear-gradient(left, #a6ce37 0, transparent 100%);
+      background: -o-linear-gradient(left, #a6ce37 0, transparent 100%);
+      background: -ms-linear-gradient(left, #a6ce37 0, transparent 100%);
+      background: linear-gradient(to right, #a6ce37 0, transparent 100%); }
+    .list-group.list-group-hm2 .list-group-item:last-child:before {
+      display: none; }
+    .list-group.list-group-hm2 .list-group-item .sprite {
+      display: block;
+      height: 50px;
+      width: 50px;
+      background: #ddd;
+      float: right; }
+
+/* MAIN NAVBAR */
 /* APP NAVBAR */
 .ap-navbar {
   z-index: 1030;
@@ -366,6 +424,28 @@ body {
   color: #777;
   font-weight: normal;
   font-size: 12px; }
+.form-group.form-group-search-hm2 {
+  padding: 10px;
+  background: #fff;
+  -webkit-box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16);
+  -moz-box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16);
+  box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16); }
+  .form-group.form-group-search-hm2 .input-group input {
+    border: none;
+    background: transparent; }
+  .form-group.form-group-search-hm2 .input-group .input-group-btn button {
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    font-size: 20px;
+    padding: 5px 20px;
+    color: #a6ce37; }
+    .form-group.form-group-search-hm2 .input-group .input-group-btn button:hover, .form-group.form-group-search-hm2 .input-group .input-group-btn button:focus, .form-group.form-group-search-hm2 .input-group .input-group-btn button:active {
+      color: #e7ffa5;
+      background: transparent;
+      box-shadow: none;
+      -webkit-box-shadow: none; }
 
 /* FORM CONTROL */
 .form-control, .form-control:focus,
@@ -531,7 +611,7 @@ hr.awesome {
     height: 1px;
     background: #fff;
     background: -moz-linear-gradient(left, #fff 0, #e7ffa5 100%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #fff), color-stop(100%, #e7ffa5));
+    background: -webkit-gradient(linear, lbackgroundeft top, right top, color-stop(0%, #fff), color-stop(100%, #e7ffa5));
     background: -webkit-linear-gradient(left, #fff 0, #e7ffa5 100%);
     background: -o-linear-gradient(left, #fff 0, #e7ffa5 100%);
     background: -ms-linear-gradient(left, #fff 0, #e7ffa5 100%);

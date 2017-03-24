@@ -1,4 +1,4 @@
-
+<!--
 <div class="container container-body">
     <div class="col-md-3 col-md-offset-9 col-fit-mobile">
         <div class="form-group">
@@ -31,6 +31,39 @@
                     LIST
                 </a>
                 <p class="dc">Deskripsi disini ...</p>
+            </li>
+        </ul>
+    </div>
+</div>
+-->
+<ng-include src="'partials/navbar-main.html'"></ng-include>
+<div class="container container-body">
+    <div class="col-md-7">
+        <div class="panel panel-default panel-app panel-hm2lg">
+            <div class="panel-body">
+                
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="form-group form-group-search-hm2">
+            <div class="input-group">
+                <input type="text" class="form-control" />
+                <span class="input-group-btn">
+                    <button class="btn btn-default">
+                        <span class="ion ion-ios-search"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <ul class="list-group list-group-hm2">
+            <li class="list-group-item" ui-sref="prospek.mandatory">
+                <span class="sprite"></span>
+                Create
+            </li>
+            <li class="list-group-item" ui-sref="prospeklist">
+                <span class="sprite"></span>
+                List
             </li>
         </ul>
     </div>
