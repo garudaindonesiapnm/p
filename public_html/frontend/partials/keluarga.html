@@ -1,5 +1,5 @@
-<div class="container container-fluid page-header page-header-form">
-    <div class="col-md-12">
+<div class="container container-fluid container-first page-header page-header-form no-padding">
+    <div class="col-md-12 col-no-padding">
         <div class="bx-ph">
             <h1>Keluarga</h1>
             <ul class="list-inline ph-ac">
@@ -14,9 +14,9 @@
             </ul>
         </div>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-12 col-no-padding">
         <ng-include src="'partials/keluarga-step.html'"></ng-include>
-        <hr class="awesome">
+        <hr class="awesome no-margin">
     </div>
 </div>
 
@@ -24,9 +24,14 @@
     <ng-include src="'partials/navbar.html'"></ng-include>
     <div class="col-sm-8 col-sm-offset-2">
         <div class="page-body">
-            <form ng-submit="processFormKeluarga()">
-                <div class="col-md-6 col-md-offset-3" ui-view></div>
-            </form>
+            <div class="panel panel-default panel-app">
+                <div class="panel-body">
+                    <form ng-submit="processFormKeluarga()">
+                        <div class="col-md-6 col-md-offset-3" ui-view></div>
+                    </form>
+                </div>
+               
+            </div>
         </div>
     </div>
 </div>

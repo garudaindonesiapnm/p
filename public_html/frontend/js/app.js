@@ -31,10 +31,7 @@ App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
         .state('prospek.mandatory', {
             url: '/prospek-mandatory',
             templateUrl: 'partials/prospek-mandatory.html',
-            params: {
-                id : null,
-                nomor_sk : null
-            }
+            controller: 'prospekCreate'
         })
         .state('prospek.kategori', {
             url: '/prospek-kategori',
@@ -79,6 +76,13 @@ App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
         .state('prospek.submit', {
             url: '/prospek-submit',
             templateUrl: 'partials/prospek-submit.html'
+        })
+        
+        /* PROSPEK CREATE */
+        .state('prospekcreate', {
+            url: '/prospek-create',
+            templateUrl: 'partials/prospek-create.html',
+            controller: 'prospekCreate'
         })
         
         /* PROSPEK LIST */
@@ -161,23 +165,25 @@ App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
 
 App.factory("apiData", function ($http) {
     
-    var apiData = function(scope,api){
-        
-        scope.loadloop = 0;
-        
-        scope.load = function(){
-            scope.loaded = false;
-            scope.error = false;
-            $http
-                .get(api,{ headers: { 'Cache-Control' : 'no-cache' } , cache : false })
-                .success(function(response) {
-                    scope.responseApi = response;
-                });
-        };
-        scope.load();
+    return {
+        get : function(scope,api){
+
+            $http({
+                method : "GET",
+                url : api,
+                dataType: 'json'
+            }).then(function mySucces(R) {
+                
+                scope.prospekList = R.data;
+                
+            }, function myError(R) {
+                
+                scope.prospekList = R.statusText;
+                
+            });
+        }
     };
     
-    return (apiData);
 });
 
 App.factory('globalFunction',function(){
@@ -226,23 +232,17 @@ App.controller('prospekCtrl', function($scope,$http,globalFunction) {
 
     })
         
-    .controller('modalProspekListCtrl',function($http,$scope){
+    .controller('modalProspekListCtrl',function($scope,apiData){
         
         var api = 'http://192.168.10.180/bwmp/index.php/api/bwmp/allUser/format/json';
-
-        $http({
-            method : "GET",
-            url : api,
-            dataType: 'json'
-        }).then(function mySucces(R) {
-            $scope.prospekList = R.data;
-            console.log($scope.prospekList); 
-        }, function myError(R) {
-            $scope.prospekList = R.statusText;
-        });
-           
-        //$scope.prospekList = new apiData($scope,api);
+        apiData.get($scope,api);
        
+    })
+    .controller('prospekCreate',function($scope,apiData){
+        
+        var api = 'http://192.168.10.180/bwmp/index.php/api/bwmp/allUser/format/json';
+        apiData.get($scope,api);
+        
     });
 
 

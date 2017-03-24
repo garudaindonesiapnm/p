@@ -1,4 +1,4 @@
-<div class="container container-fluid page-header page-header-form">
+<div class="container container-fluid container-first page-header page-header-form">
     <div class="col-md-12">
         <div class="bx-ph">
             <h1>Prospek</h1>
@@ -28,9 +28,13 @@
     
     <div class="col-md-8 col-md-offset-2">
         <div class="page-body">
-            <form id="form-prospek" ng-submit="processFormProspek()">
-                <div class="col-md-6 col-md-offset-3" ui-view></div>
-            </form>
+            <div class="panel panel-default panel-app">
+                <div class="panel-body">
+                    <form id="form-prospek" ng-submit="processFormProspek()">
+                        <div class="col-md-6 col-md-offset-3" ui-view></div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

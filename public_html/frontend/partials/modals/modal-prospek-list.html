@@ -1,7 +1,7 @@
 <div class="modal-header box-shadow">
     <ul class="list-inline">
         <li ng-controller="modalCtrl as m" ng-click="m.onCancelBtnClick()">
-            <span class="ion ion-android-arrow-forward"></span>
+            <span class="ion ion-android-exit"></span>
         </li>
         <li>
             <input type="input" />
@@ -23,7 +23,7 @@
             <td>{{prospekRow.jabatan}}</td>
             <td>{{prospekRow.nomor_sk}}</td>
             <td>
-                <a ui-sref="prospek.mandatory( { id : {{prospekRow.id}} } )">Edit</a>
+                <a ui-sref="prospekperorang( { id : {{prospekRow.id}} } )">Edit</a>
             </td>
         </tr>
     </table>
