@@ -573,13 +573,13 @@ hr.no-margin {
     height: 3px;
     border-radius: 2px;
     background: #f5f5f5;
-    background: -moz-linear-gradient(left, #fafafa 0, #f5f5f5 50%, white 100%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #fafafa), color-stop(0%, #f5f5f5), color-stop(100%, #fafafa));
-    background: -webkit-linear-gradient(left, #fafafa 0, #f5f5f5 50%, #fafafa 100%);
-    background: -o-linear-gradient(left, white 0, #f5f5f5 50%, #fafafa 100%);
-    background: -ms-linear-gradient(left, white 0, #f5f5f5 50%, #fafafa 100%);
-    background: linear-gradient(to right, white 0, #f5f5f5 50%, #fafafa 100%);
-    background: linear-gradient(to right, white 0, #f5f5f5 50%, #fafafa 100%); }
+    background: -moz-linear-gradient(left, white 0, #f5f5f5 50%, white 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, white), color-stop(0%, #f5f5f5), color-stop(100%, white));
+    background: -webkit-linear-gradient(left, white 0, #f5f5f5 50%, white 100%);
+    background: -o-linear-gradient(left, white 0, #f5f5f5 50%, white 100%);
+    background: -ms-linear-gradient(left, white 0, #f5f5f5 50%, white 100%);
+    background: linear-gradient(to right, white 0, #f5f5f5 50%, white 100%);
+    background: linear-gradient(to right, white 0, #f5f5f5 50%, white 100%); }
   .list-inline.list-inline-alt-psk li {
     width: 33.33%;
     font-size: 12px;
@@ -772,7 +772,7 @@ hr.no-margin {
   .step.step-7 a {
     width: 16.66%; }
   .step.step-8 a {
-    width: 14.28%; }
+    width: 12.5%; }
   .step.step-9 a {
     width: 11.11%; }
   .step.step-10 a {
@@ -877,6 +877,9 @@ hr.no-margin {
         color: #fff; }
 
   /* STEP MOBILE */
+  .step.step-8 a {
+    font-size: 5px;
+    font-weight: bold; }
   .step.step-9 a {
     font-size: 5px;
     font-weight: bold; } }

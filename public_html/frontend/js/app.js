@@ -160,6 +160,11 @@ App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
         ;
         
         $urlRouterProvider.otherwise('/');
+        
+        /* CACHE DISABLE */
+        
+        $httpProvider.defaults.headers.common['Cache-Control'] = 'no-cache';
+        $httpProvider.defaults.cache = false;
 
 });
 

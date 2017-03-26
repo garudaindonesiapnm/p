@@ -839,13 +839,13 @@ hr {
             height: 3px;
             border-radius: 2px;
             background: #f5f5f5;
-            background: -moz-linear-gradient(left, $clr-bg-body 0, #f5f5f5 50%, white 100%);
-            background: -webkit-gradient(linear, left top, right top, color-stop(0%, $clr-bg-body),color-stop(0%, #f5f5f5), color-stop(100%, $clr-bg-body));
-            background: -webkit-linear-gradient(left, $clr-bg-body 0, #f5f5f5 50%, $clr-bg-body 100%);
-            background: -o-linear-gradient(left, white 0, #f5f5f5 50%, $clr-bg-body 100%);
-            background: -ms-linear-gradient(left, white 0, #f5f5f5 50%, $clr-bg-body 100%);
-            background: linear-gradient(to right, white 0, #f5f5f5 50%, $clr-bg-body 100%);
-            background: linear-gradient(to right, white 0, #f5f5f5 50%, $clr-bg-body 100%);
+            background: -moz-linear-gradient(left, white 0, #f5f5f5 50%, white 100%);
+            background: -webkit-gradient(linear, left top, right top, color-stop(0%, white),color-stop(0%, #f5f5f5), color-stop(100%, white));
+            background: -webkit-linear-gradient(left, white 0, #f5f5f5 50%,white 100%);
+            background: -o-linear-gradient(left, white 0, #f5f5f5 50%, white 100%);
+            background: -ms-linear-gradient(left, white 0, #f5f5f5 50%, white 100%);
+            background: linear-gradient(to right, white 0, #f5f5f5 50%, white 100%);
+            background: linear-gradient(to right, white 0, #f5f5f5 50%, white 100%);
         }
         
         li {
@@ -1138,7 +1138,7 @@ $clr-bg-animation-3: rgb(40, 196, 204);
     
     &.step-8 {
         a {
-            width: 14.28%;
+            width: 12.5%;
         }
     }
     
@@ -1344,6 +1344,13 @@ $clr-bg-animation-3: rgb(40, 196, 204);
     /* STEP MOBILE */
     
     .step {
+        
+        &.step-8 {
+            a {
+                font-size: 5px;
+                font-weight: bold;
+            }
+        }
         
         &.step-9 {
             a {
