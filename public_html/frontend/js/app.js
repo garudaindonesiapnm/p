@@ -165,6 +165,11 @@ App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
         
         $httpProvider.defaults.headers.common['Cache-Control'] = 'no-cache';
         $httpProvider.defaults.cache = false;
+        
+        $httpProvider.defaults.headers.common = {};
+        $httpProvider.defaults.headers.post = {};
+        $httpProvider.defaults.headers.put = {};
+        $httpProvider.defaults.headers.patch = {};
 
 });
 
@@ -176,7 +181,12 @@ App.factory("apiData", function ($http) {
             $http({
                 method : "GET",
                 url : api,
-                dataType: 'json'
+                dataType: 'json',
+                headers: {
+                    //'Content-Type':'application/x-www-form-urlencoded'
+                    //'Content-Type': 'application/json; charset=utf-8'
+                    'Content-Type':'application/json'
+                },
             }).then(function mySucces(R) {
                 
                 scope.prospekList = R.data;
@@ -223,10 +233,11 @@ App.controller('prospekCtrl', function($scope,$http,globalFunction) {
                     //'Content-Type':'application/json'
                 },
                 data: globalFunction.serializeObj($scope.formDataProspek)
+                //data: angular.toJson($scope.formDataProspek)
             }).then(function(R){
                 console.log(R);
             }, function myError(R){
-                console.log(R);
+                console.log(R.statusText);
             });
             
         };
@@ -239,13 +250,13 @@ App.controller('prospekCtrl', function($scope,$http,globalFunction) {
         
     .controller('modalProspekListCtrl',function($scope,apiData){
         
-        var api = 'http://192.168.10.180/bwmp/index.php/api/bwmp/allUser/format/json';
+        var api = 'http://192.168.10.180/bwmp/index.php/api/bwmp/getUser/format/json';
         apiData.get($scope,api);
        
     })
     .controller('prospekCreate',function($scope,apiData){
         
-        var api = 'http://192.168.10.180/bwmp/index.php/api/bwmp/allUser/format/json';
+        var api = 'http://192.168.10.180/bwmp/index.php/api/bwmp/getUser/format/json';
         apiData.get($scope,api);
         
     });
