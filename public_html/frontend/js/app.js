@@ -173,7 +173,7 @@ App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
 
 });
 
-App.factory("apiData", function ($http) {
+App.factory("apiData", function ($http, globalFunction) {
     
     return {
         get : function(scope,api){
@@ -196,6 +196,26 @@ App.factory("apiData", function ($http) {
                 scope.prospekList = R.statusText;
                 
             });
+        },
+        
+        post : function(scope,api,data) {
+            
+            $http({
+                method: 'POST',
+                url: api,
+                headers: {
+                    'Content-Type':'application/x-www-form-urlencoded'
+                    //'Content-Type': 'application/json; charset=utf-8'
+                    //'Content-Type':'application/json'
+                },
+                data: globalFunction.serializeObj(data)
+                //data: angular.toJson($scope.formDataProspek)
+            }).then(function(R){
+                console.log(R);
+            }, function myError(R){
+                console.log(R.statusText);
+            });
+            
         }
     };
     
@@ -216,29 +236,16 @@ App.factory('globalFunction',function(){
     
 });
 
-App.controller('prospekCtrl', function($scope,$http,globalFunction) {
+App.controller('prospekCtrl', function($scope,apiData) {
 
         $scope.formDataProspek = {};
 
         $scope.processFormProspek = function() {
             console.log($scope.formDataProspek);
-            var api = "http://192.168.10.180/bwmp/index.php/api/bwmp/updateUser";
+            //var api = "http://192.168.10.180/bwmp/index.php/api/bwmp/updateUser";
+            var api = "http://localhost:81/prospek_pnm/public_html/backend/index.php/welcome/post";
 
-            $http({
-                method: 'POST',
-                url: api,
-                headers: {
-                    'Content-Type':'application/x-www-form-urlencoded'
-                    //'Content-Type': 'application/json; charset=utf-8'
-                    //'Content-Type':'application/json'
-                },
-                data: globalFunction.serializeObj($scope.formDataProspek)
-                //data: angular.toJson($scope.formDataProspek)
-            }).then(function(R){
-                console.log(R);
-            }, function myError(R){
-                console.log(R.statusText);
-            });
+            apiData.post($scope,api,{nomor_sk:"sk007"});
             
         };
 
@@ -250,7 +257,7 @@ App.controller('prospekCtrl', function($scope,$http,globalFunction) {
         
     .controller('modalProspekListCtrl',function($scope,apiData){
         
-        var api = 'http://192.168.10.180/bwmp/index.php/api/bwmp/getUser/format/json';
+        var api = 'http://localhost:81/prospek_pnm/public_html/backend/';
         apiData.get($scope,api);
        
     })

@@ -9,6 +9,18 @@ class Welcome extends CI_Controller {
 	
     public function index()
     {
-        $this->load->view('welcome_message');
+        $d = $this->curl->simple_get('http://192.168.10.180/bwmp/index.php/api/bwmp/getUser/format/json');
+        
+        echo $d;
+        //$this->load->view('welcome_message');
+    }
+    
+    public function post()
+    {
+        $p = $this->input->post();
+        $d = $this->curl->simple_post('http://192.168.10.180/bwmp/index.php/api/bwmp/setUser',$p);
+        
+        echo $d;
+        //$this->load->view('welcome_message');
     }
 }
