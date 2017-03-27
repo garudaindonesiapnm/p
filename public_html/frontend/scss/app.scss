@@ -131,6 +131,10 @@ body {
         }
     }
     
+    &.container-first-two-nav {
+        padding-top: 86px;
+    }
+    
     &.container-hm2 {
         height: 100%;
         
@@ -731,6 +735,33 @@ body {
         }
     }
     
+    .navbar-form {
+        &.navbar-form-search {
+            margin: 5px;
+            
+            .input-group {
+                width: 100%;
+                input,button {
+                    height: 30px;
+                    background: transparent;
+                }
+                
+                input {
+                    border-radius: 3px;
+                }
+                
+                button {
+                    border-color: transparent;
+                    left: -40px;
+                    box-shadow: none;
+                    -webkit-box-shadow: none;
+                    z-index: 1030;
+                }
+            }
+        }
+    }
+    
+    
     .navbar-brand {
         text-shadow: 0 1px 0 rgba(255,255,255,.25);
         color: #333;
@@ -745,6 +776,11 @@ body {
     background: #f4f7f9;
     border-bottom: 1px solid #eee;
     padding: 0 110px;
+    position: fixed;
+    top: 43px;
+    left: 0;
+    right: 0;
+    z-index: 1;
     
     > li {
         border-radius: 0;
@@ -813,6 +849,7 @@ body {
         margin-bottom: 15px;
         background: #fff;
         border-bottom: 1px solid #f1f1f1;
+        display: inline-table;
         
         .bx-ph {
             z-index: 1;
@@ -932,7 +969,8 @@ body {
 .form-group-sm .form-control, .form-group-sm .form-control:focus {
     box-shadow: none;
     -webkit-box-shadow: none;
-    border-radius: 1px;
+    height: 40px;
+    border-radius: 5px;
 }
 
 .form-control, 

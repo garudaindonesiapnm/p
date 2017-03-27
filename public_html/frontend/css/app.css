@@ -36,6 +36,8 @@ body {
   padding-top: 43px; }
   .container.container-first.without-navbar {
     padding-top: 0; }
+.container.container-first-two-nav {
+  padding-top: 86px; }
 .container.container-hm2 {
   height: 100%; }
   .container.container-hm2 .col-hm2lg {
@@ -479,6 +481,21 @@ body {
                   bottom: 0;
                   background: #f5f5f5;
                   padding: 8px; }
+  .ap-navbar .navbar-form.navbar-form-search {
+    margin: 5px; }
+    .ap-navbar .navbar-form.navbar-form-search .input-group {
+      width: 100%; }
+      .ap-navbar .navbar-form.navbar-form-search .input-group input, .ap-navbar .navbar-form.navbar-form-search .input-group button {
+        height: 30px;
+        background: transparent; }
+      .ap-navbar .navbar-form.navbar-form-search .input-group input {
+        border-radius: 3px; }
+      .ap-navbar .navbar-form.navbar-form-search .input-group button {
+        border-color: transparent;
+        left: -40px;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        z-index: 1030; }
   .ap-navbar .navbar-brand {
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
     color: #333;
@@ -488,7 +505,12 @@ body {
 .subnav {
   background: #f4f7f9;
   border-bottom: 1px solid #eee;
-  padding: 0 110px; }
+  padding: 0 110px;
+  position: fixed;
+  top: 43px;
+  left: 0;
+  right: 0;
+  z-index: 1; }
   .subnav > li {
     border-radius: 0;
     border: none;
@@ -530,7 +552,8 @@ body {
   margin: 0;
   margin-bottom: 15px;
   background: #fff;
-  border-bottom: 1px solid #f1f1f1; }
+  border-bottom: 1px solid #f1f1f1;
+  display: inline-table; }
   .page-header.page-header-form .bx-ph {
     z-index: 1;
     float: left;
@@ -611,7 +634,8 @@ body {
 .form-group-sm .form-control, .form-group-sm .form-control:focus {
   box-shadow: none;
   -webkit-box-shadow: none;
-  border-radius: 1px; }
+  height: 40px;
+  border-radius: 5px; }
 
 .form-control,
 .input-group-sm > .form-control,
