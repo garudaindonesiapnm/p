@@ -1,5 +1,4 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
     
@@ -12,7 +11,6 @@ class Welcome extends CI_Controller {
         $d = $this->curl->simple_get('http://192.168.10.180/bwmp/index.php/api/bwmp/getUser/format/json');
         
         echo $d;
-        //$this->load->view('welcome_message');
     }
     
     public function post()
@@ -21,6 +19,5 @@ class Welcome extends CI_Controller {
         $d = $this->curl->simple_post('http://192.168.10.180/bwmp/index.php/api/bwmp/setUser',$p);
         
         echo $d;
-        //$this->load->view('welcome_message');
     }
 }
