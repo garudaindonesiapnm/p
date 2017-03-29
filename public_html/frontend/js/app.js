@@ -16,13 +16,13 @@ App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
             templateUrl: 'partials/home.html'
         })
         
-        /* HOME */
-        .state('home2', {
-            url: '/home2',
+        /* PROSPEK HOME (HOME2) */
+        .state('prospekhome', {
+            url: '/prospek-home',
             templateUrl: 'partials/home2.html'
         })
         
-        /* PROSPEK */
+        /* PROSPEK UPDATE */
         .state('prospek', {
             url: '/prospek',
             templateUrl: 'partials/prospek.html',
@@ -96,6 +96,13 @@ App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
         .state('prospekperorang', {
             url: '/prospek-per-orang',
             templateUrl: 'partials/prospek-per-orang.html',
+        })
+        
+        /* PROSPEK KATEGORI */
+        .state('kategoriprospek', {
+            url: '/kategori',
+            templateUrl: 'partials/kategori.html',
+            controller: 'kategoriCtrl'
         })
         
         /* KELUARGA */
@@ -268,6 +275,15 @@ App.controller('prospekCtrl', function($scope,apiData) {
         
     });
 
+App.controller('kategoriCtrl', function($scope){
+    
+    $scope.formDataKategori = {};
+
+    $scope.processFormKategori = function() {
+         console.log($scope.formDataKategori);
+    };
+    
+});
 
 App.controller('keluargaCtrl', function($scope) {
 

@@ -1,18 +1,79 @@
 <ul class="nav nav-tabs nav-center subnav">
     <li>
         <a ui-sref="prospekperorang">
-            Profil
+            Nama
+        </a>
+    </li>
+    <li>
+        <a ui-sref="kategoriprospek">
+            Kategori
         </a>
     </li>
     <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
         <a uib-dropdown-toggle>
-            Personal Data <span class="ion ion-ios-arrow-down"></span>
+            Personal<span class="ion ion-ios-arrow-down"></span>
             <span class="caret-dropdown"></span>
         </a>
         <ul class="dropdown-menu" uib-dropdown-menu>
             <li>
-                <a ui-sref="prospek.kategori">
-                    Kategori
+                <a ui-sref="prospek.informasipribadi">
+                    Informasi Pribadi
+                </a>
+            </li>
+            <li>
+                <a ui-sref="prospek.kontak">
+                    Kontak
+                </a>
+            </li>
+            <li>
+                <a ui-sref="prospek.alamat">
+                    Alamat
+                </a>
+            </li>
+            <li>
+                <a ui-sref="prospek.statuspekerjaan">
+                    Status Pekerjaan
+                </a>
+            </li>
+            <li>
+                <a ui-sref="prospek.pendidikan">
+                    Pendidikan
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+        <a uib-dropdown-toggle>
+            Keluarga<span class="ion ion-ios-arrow-down"></span>
+            <span class="caret-dropdown"></span>
+        </a>
+        <ul class="dropdown-menu" uib-dropdown-menu>
+            <li>
+                <a ui-sref="keluarga.data">
+                    Data Keluarga
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+        <a uib-dropdown-toggle>
+            Aplkasi<span class="ion ion-ios-arrow-down"></span>
+            <span class="caret-dropdown"></span>
+        </a>
+        <ul class="dropdown-menu" uib-dropdown-menu>
+            <li>
+                <a ui-sref="aplikasi.informasipembiayaan">
+                    Informasi Pembiayaan
+                </a>
+            </li>
+            <li>
+                <a ui-sref="aplikasi.datapembiayaan">
+                    Data Pembiayaan
+                </a>
+            </li>
+            <li>
+                <a ui-sref="aplikasi.informasiusaha">
+                    Informasi Usaha
                 </a>
             </li>
         </ul>

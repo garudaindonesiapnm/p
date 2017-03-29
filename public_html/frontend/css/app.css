@@ -174,11 +174,13 @@ body {
 
 /* PANEL */
 .panel.panel-app {
-  border: none;
+  border: 1px solid #eee;
   border-radius: 0;
   -webkit-box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16);
   -moz-box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16);
   box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16); }
+  .panel.panel-app .panel-footer {
+    border-top-color: #eee; }
 .panel.panel-hm2lg {
   background: #fff;
   height: 100%;
@@ -189,6 +191,10 @@ body {
     .panel.panel-hm2lg .panel-body .tt {
       font-size: 90px;
       margin-top: 180px; }
+.panel.panel-login {
+  margin-top: 120px; }
+  .panel.panel-login .panel-body {
+    margin: 0 50px; }
 
 /* LIST GROUP */
 .list-group.list-group-hm2 {
@@ -604,6 +610,7 @@ body {
   font-weight: normal;
   font-size: 12px; }
 .form-group.form-group-search-hm2 {
+  margin-top: 15px;
   padding: 10px;
   background: #fff;
   -webkit-box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16);
@@ -821,6 +828,12 @@ hr.no-margin {
   .list-menu-hm li .dc {
     color: #ddd;
     font-size: 12px; }
+
+/* HOME2 */
+.footer-hm2 {
+  margin-top: 50px;
+  text-align: center;
+  color: #bbb; }
 
 /* MENU */
 .menu {

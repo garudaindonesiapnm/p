@@ -298,9 +298,13 @@ body {
 
 .panel {
     &.panel-app {
-        border: none;
+        border: 1px solid #eee;
         border-radius: 0;
         @include my-box-shadow;
+        
+        .panel-footer {
+            border-top-color: #eee;
+        }
     }
     
     &.panel-hm2lg {
@@ -315,6 +319,14 @@ body {
                 font-size: 90px;
                 margin-top: 180px;
             }
+        }
+    }
+    
+    &.panel-login {
+        margin-top: 120px;
+        
+        .panel-body {
+            margin: 0 50px;
         }
     }
 }
@@ -929,6 +941,7 @@ body {
     }
     
     &.form-group-search-hm2 {
+        margin-top: 15px;
         padding: 10px;
         background: #fff;
         @include my-box-shadow();
@@ -1208,6 +1221,14 @@ $clr-bg-animation-3: rgb(40, 196, 204);
             font-size: 12px;
         }
     }
+}
+
+/* HOME2 */
+
+.footer-hm2 {
+    margin-top: 50px;
+    text-align: center;
+    color: #bbb;
 }
 
 /* MENU */
