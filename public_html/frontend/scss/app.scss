@@ -14,7 +14,7 @@ and open the template in the editor.
 $clr-pnm-blue: #0066b2;
 $clr-pnm-green: #a6ce37;
 $clr-pnm-green-smooth: #e7ffa5;
-$clr-bg-body: #fafafa;
+$clr-bg-body: #fff;
 $clr-hr-side: $clr-pnm-green;
 $clr-hr-mid: rgb(86, 161, 218);
 
@@ -151,13 +151,21 @@ body {
     padding: 0;
 }
 
+.col-no-padding-right {
+    padding-right: 0;
+}
+
+.col-no-padding-left {
+    padding-left: 0;
+}
+
 /* NAV */
 
 .nav {
     &.nav-center {
         &.nav-tabs, &.nav-pills {
             text-align:center;
-            li {
+            > li {
                 float:none;
                 display:inline-block;
                 *display:inline; /* ie7 fix */
@@ -300,7 +308,20 @@ body {
     &.panel-app {
         border: 1px solid #eee;
         border-radius: 0;
-        @include my-box-shadow;
+        //@include my-box-shadow;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        
+        .panel-heading {
+            background-image: none;
+            border-bottom-color: #eee;
+            background: #f9f9f9;
+            
+            h1 {
+                margin: 0;
+                font-size: 25px;
+            }
+        }
         
         .panel-footer {
             border-top-color: #eee;
@@ -327,6 +348,27 @@ body {
         
         .panel-body {
             margin: 0 50px;
+        }
+    }
+    
+    &.panel-wz-ls {
+        border: 0;
+        border-left: 1px solid #eee;
+        min-height: 500px;
+        margin-top: -15px;
+        padding: 0;
+        
+        .panel-body {
+            padding: 0;
+            
+            .thead {
+                background: #fff;
+                border-bottom: 1px solid #eee;
+                
+                th {
+                    border-top: none;
+                }
+            }
         }
     }
 }
@@ -809,6 +851,10 @@ body {
                 border-radius: 0;
             }
             
+            .ion {
+                margin-left: 5px;
+            }
+            
         }
         
         &.open {
@@ -857,11 +903,19 @@ body {
         width: 100%;
         border: none;
         /*background: #ddecf7;*/
+        background: #fff;
         margin: 0;
         margin-bottom: 15px;
-        background: #fff;
         border-bottom: 1px solid #f1f1f1;
         display: inline-table;
+        
+        &.no-margin {
+            margin: 0;
+        }
+        
+        &.has-bg-color{
+            background: rgb(244, 246, 249);
+        }
         
         .bx-ph {
             z-index: 1;
@@ -869,8 +923,23 @@ body {
             width: 100%;
             
             h1 {
+                margin: 20px 15px 40px 15px;
                 text-align: center;
-                margin: 20px 0 40px 0;
+            }
+            
+            .bxph-left {
+                float: left;
+                width: 50%;
+                h1 {
+                    text-align: left;
+                }
+            }
+            
+            .bxph-right {
+                width: 50%;
+                float: right;
+                text-align: right;
+                padding: 20px 15px;
             }
 
             .ph-ac {
@@ -944,6 +1013,7 @@ body {
         margin-top: 15px;
         padding: 10px;
         background: #fff;
+        border: 1px solid #eee;
         @include my-box-shadow();
         
         .input-group {
@@ -982,7 +1052,7 @@ body {
 .form-group-sm .form-control, .form-group-sm .form-control:focus {
     box-shadow: none;
     -webkit-box-shadow: none;
-    height: 40px;
+    height: 35px;
     border-radius: 5px;
 }
 
@@ -990,8 +1060,8 @@ body {
 .input-group-sm > .form-control,
 .input-group-sm > .input-group-addon,
 .form-group-sm .form-control {
-    -webkit-appearance: none;
-    appearance: none;
+    /*-webkit-appearance: none;
+    appearance: none;*/
     background: #fbfbfb;
     border-color: #ccc;
    
@@ -1152,12 +1222,14 @@ $clr-bg-animation-3: rgb(40, 196, 204);
     margin-top: 30px;
     
     .hl-img {
-        height: 90px;
-        width: 90px;
+        height: 120px;
+        width: 120px;
         position: relative;
-        padding: 50px;
+        padding: 5px;
         display: -webkit-inline-box;
         display: inline-block;
+        background: #eee;
+        border-radius: 50%;
         
         img {
             position: absolute;

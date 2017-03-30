@@ -85,6 +85,21 @@ App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
             controller: 'prospekCreate'
         })
         
+        .state('prospekcreate.1', {
+            url: '/1',
+            templateUrl: 'partials/prospek-wizard-1.html',
+        })
+        
+        .state('prospekcreate.2', {
+            url: '/2',
+            templateUrl: 'partials/prospek-wizard-2.html',
+        })
+        
+        .state('prospekcreate.3', {
+            url: '/3',
+            templateUrl: 'partials/prospek-wizard-3.html',
+        })
+        
         /* PROSPEK LIST */
         .state('prospeklist', {
             url: '/prospek-list',

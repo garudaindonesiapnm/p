@@ -16,7 +16,7 @@ html, body {
   font-weight: 400; }
 
 body {
-  background: #fafafa; }
+  background: #fff; }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto', sans-serif;
@@ -47,10 +47,16 @@ body {
 .col-no-padding {
   padding: 0; }
 
+.col-no-padding-right {
+  padding-right: 0; }
+
+.col-no-padding-left {
+  padding-left: 0; }
+
 /* NAV */
 .nav.nav-center.nav-tabs, .nav.nav-center.nav-pills {
   text-align: center; }
-  .nav.nav-center.nav-tabs li, .nav.nav-center.nav-pills li {
+  .nav.nav-center.nav-tabs > li, .nav.nav-center.nav-pills > li {
     float: none;
     display: inline-block;
     *display: inline;
@@ -176,9 +182,15 @@ body {
 .panel.panel-app {
   border: 1px solid #eee;
   border-radius: 0;
-  -webkit-box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16);
-  -moz-box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16);
-  box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16); }
+  box-shadow: none;
+  -webkit-box-shadow: none; }
+  .panel.panel-app .panel-heading {
+    background-image: none;
+    border-bottom-color: #eee;
+    background: #f9f9f9; }
+    .panel.panel-app .panel-heading h1 {
+      margin: 0;
+      font-size: 25px; }
   .panel.panel-app .panel-footer {
     border-top-color: #eee; }
 .panel.panel-hm2lg {
@@ -195,6 +207,19 @@ body {
   margin-top: 120px; }
   .panel.panel-login .panel-body {
     margin: 0 50px; }
+.panel.panel-wz-ls {
+  border: 0;
+  border-left: 1px solid #eee;
+  min-height: 500px;
+  margin-top: -15px;
+  padding: 0; }
+  .panel.panel-wz-ls .panel-body {
+    padding: 0; }
+    .panel.panel-wz-ls .panel-body .thead {
+      background: #fff;
+      border-bottom: 1px solid #eee; }
+      .panel.panel-wz-ls .panel-body .thead th {
+        border-top: none; }
 
 /* LIST GROUP */
 .list-group.list-group-hm2 {
@@ -528,6 +553,8 @@ body {
         border-color: transparent;
         border-bottom-color: #a6ce37;
         border-radius: 0; }
+      .subnav > li > a .ion {
+        margin-left: 5px; }
     .subnav > li.open > a {
       border-radius: 0;
       border-color: transparent;
@@ -555,18 +582,32 @@ body {
   width: 100%;
   border: none;
   /*background: #ddecf7;*/
+  background: #fff;
   margin: 0;
   margin-bottom: 15px;
-  background: #fff;
   border-bottom: 1px solid #f1f1f1;
   display: inline-table; }
+  .page-header.page-header-form.no-margin {
+    margin: 0; }
+  .page-header.page-header-form.has-bg-color {
+    background: #f4f6f9; }
   .page-header.page-header-form .bx-ph {
     z-index: 1;
     float: left;
     width: 100%; }
     .page-header.page-header-form .bx-ph h1 {
-      text-align: center;
-      margin: 20px 0 40px 0; }
+      margin: 20px 15px 40px 15px;
+      text-align: center; }
+    .page-header.page-header-form .bx-ph .bxph-left {
+      float: left;
+      width: 50%; }
+      .page-header.page-header-form .bx-ph .bxph-left h1 {
+        text-align: left; }
+    .page-header.page-header-form .bx-ph .bxph-right {
+      width: 50%;
+      float: right;
+      text-align: right;
+      padding: 20px 15px; }
     .page-header.page-header-form .bx-ph .ph-ac {
       position: absolute;
       top: 15px;
@@ -613,6 +654,7 @@ body {
   margin-top: 15px;
   padding: 10px;
   background: #fff;
+  border: 1px solid #eee;
   -webkit-box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16);
   -moz-box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16);
   box-shadow: 0px 1px 8px -3px rgba(17, 17, 17, 0.16); }
@@ -641,15 +683,15 @@ body {
 .form-group-sm .form-control, .form-group-sm .form-control:focus {
   box-shadow: none;
   -webkit-box-shadow: none;
-  height: 40px;
+  height: 35px;
   border-radius: 5px; }
 
 .form-control,
 .input-group-sm > .form-control,
 .input-group-sm > .input-group-addon,
 .form-group-sm .form-control {
-  -webkit-appearance: none;
-  appearance: none;
+  /*-webkit-appearance: none;
+  appearance: none;*/
   background: #fbfbfb;
   border-color: #ccc; }
   .form-control:focus,
@@ -774,12 +816,14 @@ hr.no-margin {
   text-align: center;
   margin-top: 30px; }
   .hm-lg .hl-img {
-    height: 90px;
-    width: 90px;
+    height: 120px;
+    width: 120px;
     position: relative;
-    padding: 50px;
+    padding: 5px;
     display: -webkit-inline-box;
-    display: inline-block; }
+    display: inline-block;
+    background: #eee;
+    border-radius: 50%; }
     .hm-lg .hl-img img {
       position: absolute;
       top: 0;
