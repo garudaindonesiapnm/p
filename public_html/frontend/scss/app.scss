@@ -239,6 +239,16 @@ body {
     
 }
 
+/* ALERT */
+
+.alert {
+    background-image: none;
+    
+    &.alert-danger {
+        background-color: #fff6f6;
+    }
+}
+
 /* MODAL */
 
 .modal {
@@ -355,6 +365,23 @@ body {
                 margin: 0;
                 font-size: 25px;
             }
+        }
+        
+        .panel-body {
+            
+            &.relative {
+                position: relative;
+            }
+            /*
+            .alert {
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                border-radius: 0;
+                z-index: 1;
+            }
+            */
         }
         
         .panel-footer {

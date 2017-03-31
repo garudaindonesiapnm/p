@@ -2,13 +2,13 @@
 <div class="container container-fluid container-first page-header page-header-form no-padding has-bg-color">
     <div class="bx-ph">
         <div class="bxph-left">
-            <h1 class="text-center">
+            <h1 class="text-center animated bounceInLeft">
                 <span class="ion ion-document"></span>
                 Create
             </h1>
         </div>
         <div class="bxph-right">
-            <h3 class="text-center">List Calon Debitur</h3>
+            <h3 class="text-center animated bounceInRight">List Calon Debitur</h3>
         </div>
         <hr class="awesome no-margin"/>
     </div>
@@ -19,8 +19,8 @@
             <div class="panel-heading">
                 <h1>Data Calon Debitur</h1>
             </div>
-            <div class="panel-body">
-                <ul ng-if="formValidMsg" class="alert alert-danger">
+            <div class="panel-body relative">
+                <ul ng-if="formValidMsg" class="list-unstyled alert alert-danger animated" ng-class="{true: ' bounceOutLeft', false: 'bounceInLeft'}[formValidMsg==true]">
                     <li ng-repeat="x in formValidMsg">{{x}}</li>
                 </ul>
                 <form name="prospekCreateForm" ng-submit="processFormProspekCreate()">

@@ -118,6 +118,12 @@ body {
 .dropdown.open .dropdown-toggle .caret-dropdown {
   display: initial; }
 
+/* ALERT */
+.alert {
+  background-image: none; }
+  .alert.alert-danger {
+    background-color: #fff6f6; }
+
 /* MODAL */
 .modal.modal-right .modal-dialog {
   margin-top: 0;
@@ -213,6 +219,19 @@ body {
     .panel.panel-app .panel-heading h1 {
       margin: 0;
       font-size: 25px; }
+  .panel.panel-app .panel-body {
+    /*
+    .alert {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        border-radius: 0;
+        z-index: 1;
+    }
+    */ }
+    .panel.panel-app .panel-body.relative {
+      position: relative; }
   .panel.panel-app .panel-footer {
     border-top-color: #eee; }
 .panel.panel-hm2lg {
