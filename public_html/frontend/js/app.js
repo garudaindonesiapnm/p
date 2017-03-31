@@ -1,4 +1,4 @@
-var App = angular.module('App', ['ngAnimate' , 'angularMoment', 'ui.bootstrap', 'ui.router', 'wt.responsive']);
+var App = angular.module('App', ['ngAnimate', 'ngMaterial' , 'angularMoment', 'ui.bootstrap', 'ui.router', 'wt.responsive']);
 
 App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
         
@@ -78,7 +78,7 @@ App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
             templateUrl: 'partials/prospek-submit.html'
         })
         
-        /* PROSPEK CREATE */
+        /* PROSPEK CREATE WIZARD */
         .state('prospekcreate', {
             url: '/prospek-create',
             templateUrl: 'partials/prospek-create.html',
@@ -87,17 +87,17 @@ App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
         
         .state('prospekcreate.1', {
             url: '/1',
-            templateUrl: 'partials/prospek-wizard-1.html',
+            templateUrl: 'partials/prospek-create-1.html',
         })
         
         .state('prospekcreate.2', {
             url: '/2',
-            templateUrl: 'partials/prospek-wizard-2.html',
+            templateUrl: 'partials/prospek-create-2.html',
         })
         
         .state('prospekcreate.3', {
             url: '/3',
-            templateUrl: 'partials/prospek-wizard-3.html',
+            templateUrl: 'partials/prospek-create-3.html',
         })
         
         /* PROSPEK LIST */
@@ -258,6 +258,39 @@ App.factory('globalFunction',function(){
     
 });
 
+App.controller('prospekCreate',function($scope,apiData){
+        
+    var api = 'http://192.168.10.180/bwmp/index.php/api/bwmp/getUser/format/json';
+    apiData.get($scope,api);
+    
+    $scope.formDataProspekCreate = {};
+    
+    $scope.processFormProspekCreate = function() {
+        
+        console.log($scope.formDataProspekCreate);
+        
+        //var api = "http://localhost:81/prospek_pnm/public_html/backend/index.php/welcome/post";
+
+        //apiData.post($scope,api,{nomor_sk:"sk007"});
+
+    };
+    
+    $scope.maxSize = 4;
+    $scope.totalItems = 64;
+    $scope.currentPage = 1;
+
+    $scope.setPage = function (pageNo) {
+      $scope.currentPage = pageNo;
+      
+    };
+
+    $scope.pageChanged = function(cp) {
+        //$log.log('Page changed to: ' + $scope.currentPage);
+        console.log(cp);
+    };
+  
+});
+
 App.controller('prospekCtrl', function($scope,apiData) {
 
         $scope.formDataProspek = {};
@@ -282,12 +315,6 @@ App.controller('prospekCtrl', function($scope,apiData) {
         var api = 'http://localhost:81/prospek_pnm/public_html/backend/';
         apiData.get($scope,api);
        
-    })
-    .controller('prospekCreate',function($scope,apiData){
-        
-        var api = 'http://192.168.10.180/bwmp/index.php/api/bwmp/getUser/format/json';
-        apiData.get($scope,api);
-        
     });
 
 App.controller('kategoriCtrl', function($scope){

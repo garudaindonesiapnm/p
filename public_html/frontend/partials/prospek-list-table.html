@@ -1,4 +1,23 @@
-<table wt-responsive-table class="table table-striped table-hidden-overflow small">
+<table wt-responsive-table class="table table-hidden-overflow small">
+    <ul class="thead thead-action list-inline">
+        <li>
+            <input type="text" placeholder="Cari"/>
+        </li>
+        <li>
+            Page: {{currentPage}} / {{numPages}}
+        </li>
+        <li class="right">
+            <ul uib-pagination total-items="totalItems"
+                ng-model="currentPage"
+                ng-change="pageChanged(currentPage)"
+                max-size="maxSize" 
+                class="pagination-sm" 
+                boundary-links="true" 
+                num-pages="numPages"
+                previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"
+            ></ul>
+        </li>
+    </ul>
     <tr class="thead">
         <th>Nama</th>
         <th>Identitas</th>

@@ -1,0 +1,35 @@
+<div class="form-group">
+    <label>Nama Panggilan *</label>
+    <input type="text" class="form-control" required ng-model="formDataProspekCreate.nama_panggilan"/>
+</div>
+<div class="form-group">
+    <label>Nama Lengkap</label>
+    <input type="text" class="form-control" ng-model="formDataProspekCreate.nama_lengkap" />
+</div>
+<div class="form-group">
+    <label>Jenis Identitas *</label>
+    <select class="form-control" ng-model="formDataProspekCreate.jenis_identitas">
+        <option>KTP</option>
+        <option>SIM</option>
+    </select>
+</div>
+<div class="form-group">
+    <label>Masa Berlaku</label>
+    <div class="pull-right">
+        <input type="checkbox" ng-model="formDataProspekCreate.masa_berlaku_identitas_seumur_hidup"> Seumur hidup
+    </div>
+    <div>
+        <md-datepicker md-placeholder="Tanggal masa berlaku" ng-model="formDataProspekCreate.tanggal_masa_berlaku_identitas"></md-datepicker>
+    </div>
+</div>
+<div class="form-group">
+    <label>Tempat Lahir *</label>
+    <input type="text" class="form-control" required ng-model="formDataProspekCreate.tempat_lahir"/>
+</div>
+
+
+<div class="form-group form-group-btn-step">
+    <a ui-sref="prospekcreate.2" class="btn btn-primary btn-next">
+        <span class="ion ion-ios-arrow-right"></span>
+    </a>
+</div>

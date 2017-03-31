@@ -2,14 +2,13 @@
 <div class="container container-fluid container-first page-header page-header-form no-padding has-bg-color">
     <div class="bx-ph">
         <div class="bxph-left">
-            <h1>Create</h1>
+            <h1 class="text-center">
+                <span class="ion ion-document"></span>
+                Create
+            </h1>
         </div>
         <div class="bxph-right">
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary"><</button>
-                <button type="button" class="btn btn-primary">|</button>
-                <button type="button" class="btn btn-primary">></button>
-            </div>
+            <h3 class="text-center">List Calon Debitur</h3>
         </div>
         <hr class="awesome no-margin"/>
     </div>
@@ -21,8 +20,9 @@
                 <h1>Data Calon Debitur</h1>
             </div>
             <div class="panel-body">
-                <div class="col-md-6 col-md-offset-3 ui-view">
-                </div>
+                <form ng-submit="processFormProspekCreate()">
+                    <div class="col-md-6 col-md-offset-3 ui-view"></div>
+                </form>
             </div>
         </div>
     </div>

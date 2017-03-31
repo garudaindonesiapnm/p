@@ -92,12 +92,18 @@ $clr-hr-mid: rgb(86, 161, 218);
 }
 
 html,body {
-    height: 100%;
+    min-height: 100%;
     @include my-font;
+}
+
+html {
+    min-height: 100%;
+    overflow: auto;
 }
 
 body {
     background: $clr-bg-body;
+    height: auto;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
@@ -182,7 +188,35 @@ body {
     &.table-hidden-overflow {
         overflow: hidden;
     }
+    
+    tr {
+        border-color: #eee;
+    }
 }
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border-color: #f5f5f5;
+}
+
+.thead {
+        &.thead-action {
+            margin: 0;
+            padding: 5px;
+            li {
+                input {
+                    margin: 0;
+                    height: 29px;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    padding: 5px;
+                }
+                .pagination {
+                    margin: 0;
+                }
+            }
+            
+        }
+    }
 
 /* DROPDOWN */
 
@@ -354,16 +388,27 @@ body {
     &.panel-wz-ls {
         border: 0;
         border-left: 1px solid #eee;
-        min-height: 500px;
-        margin-top: -15px;
+        border-bottom:  1px solid #eee;
+        height: 500px;
+        overflow: auto;
+        margin-top: -19px;
         padding: 0;
+        padding-top: 47px;
         
         .panel-body {
             padding: 0;
             
             .thead {
-                background: #fff;
                 border-bottom: 1px solid #eee;
+                background: #f2ffee;
+                
+                &.thead-action {
+                    background: #f4f6f9;
+                    position: absolute;
+                    right: 0;
+                    left: 0;
+                    top: -19px;
+                }
                 
                 th {
                     border-top: none;
@@ -925,6 +970,22 @@ body {
             h1 {
                 margin: 20px 15px 40px 15px;
                 text-align: center;
+                font-size: 40px;
+                line-height: 50px;
+                
+                .ion {
+                    display: block;
+                    width: 50px;
+                    height: 50px;
+                    line-height: 50px;
+                    background: #c06daa;
+                    float: left;
+                    border-radius: 50%;
+                    text-align: center;
+                    vertical-align: middle;
+                    margin: 0 15px;
+                    color: #f4f6f9;
+                }
             }
             
             .bxph-left {
@@ -1042,6 +1103,22 @@ body {
             }
         }
     }
+    
+    md-datepicker {
+        .md-datepicker-button {
+            width: 20%;
+            margin: 0;
+        }
+        .md-datepicker-input-container {
+            width: 80%;
+            margin: 0;
+            
+            .md-datepicker-input {
+                width: 100%;
+            }
+        }
+    }
+    
 }
 
 /* FORM CONTROL */
@@ -1132,6 +1209,12 @@ hr {
             }
         }
         
+    }
+    
+    li {
+        &.right {
+            float: right;
+        }
     }
 }
 
