@@ -1,6 +1,6 @@
 <div class="form-group">
     <label>Nama Panggilan *</label>
-    <input type="text" class="form-control" required ng-model="formDataProspekCreate.nama_panggilan"/>
+    <input type="text" class="form-control" ng-model="formDataProspekCreate.nama_panggilan"/>
 </div>
 <div class="form-group">
     <label>Nama Lengkap</label>
@@ -14,7 +14,7 @@
     </select>
 </div>
 <div class="form-group">
-    <label>Masa Berlaku</label>
+    <label>Masa Berlaku *</label>
     <div class="pull-right">
         <input type="checkbox" ng-model="formDataProspekCreate.masa_berlaku_identitas_seumur_hidup"> Seumur hidup
     </div>
@@ -23,8 +23,12 @@
     </div>
 </div>
 <div class="form-group">
+    <label>Nomor identitas *</label>
+    <input type="text" class="form-control" ng-model="formDataProspekCreate.nomor_identitas"/>
+</div>
+<div class="form-group">
     <label>Tempat Lahir *</label>
-    <input type="text" class="form-control" required ng-model="formDataProspekCreate.tempat_lahir"/>
+    <input type="text" class="form-control" ng-model="formDataProspekCreate.tempat_lahir"/>
 </div>
 
 

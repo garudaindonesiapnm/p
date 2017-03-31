@@ -20,7 +20,10 @@
                 <h1>Data Calon Debitur</h1>
             </div>
             <div class="panel-body">
-                <form ng-submit="processFormProspekCreate()">
+                <ul ng-if="formValidMsg" class="alert alert-danger">
+                    <li ng-repeat="x in formValidMsg">{{x}}</li>
+                </ul>
+                <form name="prospekCreateForm" ng-submit="processFormProspekCreate()">
                     <div class="col-md-6 col-md-offset-3 ui-view"></div>
                 </form>
             </div>
@@ -30,7 +33,7 @@
     <div class="col-md-6 col-no-padding">
         <div class="panel panel-default panel-app panel-wz-ls">
             <div class="panel-body">
-                <ng-include src="'partials/prospek-list-table.html'"></ng-include>
+                <ng-include src="'partials/tabel-calon-debitur.html'"></ng-include>
             </div>
         </div>
     </div>

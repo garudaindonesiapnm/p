@@ -260,19 +260,86 @@ App.factory('globalFunction',function(){
 
 App.controller('prospekCreate',function($scope,apiData){
         
-    var api = 'http://192.168.10.180/bwmp/index.php/api/bwmp/getUser/format/json';
-    apiData.get($scope,api);
+    //var api = 'http://192.168.10.180/bwmp/index.php/api/bwmp/getUser/format/json';
+    //apiData.get($scope,api);
+    
+    $scope.calonDebiturs = [];
     
     $scope.formDataProspekCreate = {};
     
     $scope.processFormProspekCreate = function() {
         
-        console.log($scope.formDataProspekCreate);
+        //console.log($scope.formDataProspekCreate);
+        if ($scope.formValid()) {
+            
+            $scope.calonDebiturs.push(angular.copy($scope.formDataProspekCreate));
+        
+            console.log($scope.calonDebiturs);
+
+            $scope.prospekCreateForm.$setPristine();
+            
+        }
         
         //var api = "http://localhost:81/prospek_pnm/public_html/backend/index.php/welcome/post";
 
         //apiData.post($scope,api,{nomor_sk:"sk007"});
 
+    };
+    
+    $scope.formValidStatus = false;
+    
+    
+    
+    $scope.formValid = function(){
+        
+        /*
+        if ($scope.formDataProspekCreate.nama_lengkap) {
+            $scope.formValidMsg.push('Nama lengkap tidak boleh kosong');
+        }*/
+        
+        $scope.formValidMsg = [];
+        console.log($scope.formDataProspekCreate.nama_panggilan);
+        
+        if (!$scope.formDataProspekCreate.nama_panggilan) {
+            $scope.formValidMsg.push('Nama panggilan tidak boleh kosong');
+        }
+        if (!$scope.formDataProspekCreate.jenis_identitas) {
+            $scope.formValidMsg.push('Jenis identitas tidak boleh kosong');
+        }
+        if (!$scope.formDataProspekCreate.masa_berlaku_identitas_seumur_hidup) {
+            $scope.formValidMsg.push('Masa berlaku identitas tidak boleh kosong');
+        }
+        if (!$scope.formDataProspekCreate.nomor_identitas) {
+            $scope.formValidMsg.push('Nomor identitas tidak boleh kosong');
+        }
+        if (!$scope.formDataProspekCreate.tempat_lahir) {
+            $scope.formValidMsg.push('Tempat lahir tidak boleh kosong');
+        }
+        if (!$scope.formDataProspekCreate.tanggal_lahir) {
+            $scope.formValidMsg.push('Tanggal lahir tidak boleh kosong');
+        }
+        if (!$scope.formDataProspekCreate.alamat) {
+            $scope.formValidMsg.push('Alamat tidak boleh kosong');
+        }
+        if (!$scope.formDataProspekCreate.nomor_handphone) {
+            $scope.formValidMsg.push('Nomor handphone tidak boleh kosong');
+        }
+        if (!$scope.formDataProspekCreate.nama_ibu_kandung) {
+            $scope.formValidMsg.push('Nama ibu kandung tidak boleh kosong');
+        }
+        if (!$scope.formDataProspekCreate.jenis_usaha) {
+            $scope.formValidMsg.push('Jenis usaha tidak boleh kosong');
+        }
+        
+        console.log($scope.formValidMsg);
+        
+        if ($scope.formValidMsg.length > 0) {
+            $scope.formValidStatus = true;
+            return false;
+        } else {
+            return true;
+        }
+        
     };
     
     $scope.maxSize = 4;
