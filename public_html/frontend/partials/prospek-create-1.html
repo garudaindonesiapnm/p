@@ -18,7 +18,7 @@
     <div class="pull-right">
         <input type="checkbox" ng-model="formDataProspekCreate.masa_berlaku_identitas_seumur_hidup"> Seumur hidup
     </div>
-    <div>
+    <div ng-hide="formDataProspekCreate.masa_berlaku_identitas_seumur_hidup">
         <md-datepicker md-placeholder="Tanggal masa berlaku" ng-model="formDataProspekCreate.tanggal_masa_berlaku_identitas"></md-datepicker>
     </div>
 </div>

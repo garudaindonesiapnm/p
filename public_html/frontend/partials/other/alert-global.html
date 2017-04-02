@@ -1,0 +1,4 @@
+<ul uib-alert ng-if="$root.alertGlobalStatus" class="list-unstyled alert alert-danger animated {{$root.alertGlobalHide}}"  ng-class="{false : 'hide' , true : 'bounceInDown'}[$root.alertGlobalStatus==true]">
+    <a class="close" ng-click="$root.alertGlobalHide='false'">close</a>
+    <li ng-repeat="x in $root.alertGlobalMsg">{{x}}</li>
+</ul>

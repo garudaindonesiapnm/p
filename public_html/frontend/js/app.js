@@ -288,8 +288,6 @@ App.controller('prospekCreate',function($scope,apiData){
     
     $scope.formValidStatus = false;
     
-    
-    
     $scope.formValid = function(){
         
         /*
@@ -340,6 +338,10 @@ App.controller('prospekCreate',function($scope,apiData){
             return true;
         }
         
+    };
+    
+    $scope.closeAlert = function(index) {
+        $scope.formValidMsg.splice(index, 1);
     };
     
     $scope.maxSize = 4;

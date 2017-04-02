@@ -18,6 +18,9 @@ $clr-bg-body: #fff;
 $clr-hr-side: $clr-pnm-green;
 $clr-hr-mid: rgb(86, 161, 218);
 
+$clr-pnm-blue-vsmooth: #f4f6f9;
+$clr-pnm-green-vsmooth: #f2ffee;
+
 /* MIXIN */
 
 @mixin background-2-color ($clrStart, $clrEnd){
@@ -92,18 +95,17 @@ $clr-hr-mid: rgb(86, 161, 218);
 }
 
 html,body {
-    min-height: 100%;
     @include my-font;
+    background: $clr-bg-body;
 }
 
 html {
-    min-height: 100%;
+    height: 100%;
     overflow: auto;
 }
 
 body {
-    background: $clr-bg-body;
-    height: auto;
+    min-height: 100%;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
@@ -116,7 +118,7 @@ body {
 .container {
     
     &.container-body {
-        min-height: 85%;
+        min-height: 100%;
         
         &.with-main-nav {
             padding-top: 55px;
@@ -371,8 +373,9 @@ body {
             
             &.relative {
                 position: relative;
+                overflow: hidden;
             }
-            /*
+            
             .alert {
                 position: absolute;
                 top: 0;
@@ -381,7 +384,7 @@ body {
                 border-radius: 0;
                 z-index: 1;
             }
-            */
+            
         }
         
         .panel-footer {
@@ -391,6 +394,7 @@ body {
     
     &.panel-hm2lg {
         background: #fff;
+        @include background-2-color($clr-pnm-blue-vsmooth, $clr-pnm-green-vsmooth);
         height: 100%;
         margin-bottom: 0;
         
@@ -408,7 +412,8 @@ body {
         margin-top: 120px;
         
         .panel-body {
-            margin: 0 50px;
+            padding: 40px 100px;
+            @include background-2-color ($clr-pnm-blue-vsmooth, $clr-pnm-green-vsmooth);
         }
     }
     
@@ -431,6 +436,7 @@ body {
                 
                 &.thead-action {
                     background: #f4f6f9;
+                    background: #f2ffee;
                     position: absolute;
                     right: 0;
                     left: 0;
@@ -900,6 +906,7 @@ body {
 
 .subnav {
     background: #f4f7f9;
+    @include background-2-color($clr-pnm-blue-vsmooth, $clr-pnm-green-vsmooth);
     border-bottom: 1px solid #eee;
     padding: 0 110px;
     position: fixed;
@@ -987,6 +994,8 @@ body {
         
         &.has-bg-color{
             background: rgb(244, 246, 249);
+            //background: linear-gradient(to right, #f4f6f9 0, #f2ffee 100%);
+            @include background-2-color($clr-pnm-blue-vsmooth, $clr-pnm-green-vsmooth);
         }
         
         .bx-ph {
@@ -995,10 +1004,16 @@ body {
             width: 100%;
             
             h1 {
+                /*
                 margin: 20px 15px 40px 15px;
                 text-align: center;
                 font-size: 40px;
                 line-height: 50px;
+                */
+                margin: 5px 0px 5px 0px;
+                text-align: center;
+                font-size: 25px;
+                line-height: 40px;
                 
                 .ion {
                     display: block;
@@ -1020,6 +1035,8 @@ body {
                 width: 50%;
                 h1 {
                     text-align: left;
+                    line-height: 50px;
+                    margin-top: 20px;
                 }
             }
             
@@ -1037,16 +1054,18 @@ body {
 
                 > li {
                     cursor: pointer;
-                    border-radius: 50%;
+                    border-radius: 3px;
                     background: #fff;
-                    padding: 5px;
-                    width: 50px;
-                    height: 50px;
+                    padding: 0px;
+                    width: 30px;
+                    height: 30px;
                     text-align: center;
-                    line-height: 50px;
+                    line-height: 30px;
+                    border: 1px solid $clr-pnm-blue;
+                    font-size: 25px;
 
                     .glyphicon,.ion {
-                        font-size: 25px;
+                        
                     }
                 }
             }
@@ -1156,7 +1175,6 @@ body {
 .form-group-sm .form-control, .form-group-sm .form-control:focus {
     box-shadow: none;
     -webkit-box-shadow: none;
-    height: 35px;
     border-radius: 5px;
 }
 
@@ -1166,6 +1184,7 @@ body {
 .form-group-sm .form-control {
     /*-webkit-appearance: none;
     appearance: none;*/
+    height: 35px;
     background: #fbfbfb;
     border-color: #ccc;
    
@@ -1358,7 +1377,7 @@ $clr-bg-animation-3: rgb(40, 196, 204);
     
     li {
         position: relative;
-        width: 50%;
+        width: 33.33%;
         float: left;
         padding: 15px 20px;
         
@@ -1454,13 +1473,13 @@ $clr-bg-animation-3: rgb(40, 196, 204);
         
         > span {
             display: block;
-            width: 15px;
-            height: 15px;
-            background: $clr-pnm-blue;
+            width: 8px;
+            height: 8px;
+            background: #0066b2;
             border-radius: 50%;
             float: left;
             position: absolute;
-            top: -18px;
+            top: -10px;
             left: 0;
             right: 0;
             margin: auto;
@@ -1570,7 +1589,9 @@ $clr-bg-animation-3: rgb(40, 196, 204);
 
 .container-footer {
     width: 100%;
-    margin-top: 30px;
+    padding-top: 10px;
+    background: #f5f5f5;
+    border-top: 1px solid #eee;
     
     .ul-footer {
         padding: 20px 0;

@@ -20,7 +20,10 @@
                 <h1>Data Calon Debitur</h1>
             </div>
             <div class="panel-body relative">
-                <ul ng-if="formValidMsg" class="list-unstyled alert alert-danger animated" ng-class="{true: ' bounceOutLeft', false: 'bounceInLeft'}[formValidMsg==true]">
+                <ul ng-show="formValidStatus" class="list-unstyled alert alert-danger animated" ng-class="{false : 'bounceOutUp' , true : 'bounceInDown'}[formValidStatus==true]">
+                    <a class="close" ng-click="formValidStatus=false">
+                        <span class="ion ion-ios-close"></span>
+                    </a>
                     <li ng-repeat="x in formValidMsg">{{x}}</li>
                 </ul>
                 <form name="prospekCreateForm" ng-submit="processFormProspekCreate()">
@@ -38,6 +41,6 @@
         </div>
     </div>
 </div>
-
+<ng-include src="'partials/footer.html'"></ng-include>
 
 
