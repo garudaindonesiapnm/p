@@ -10,7 +10,9 @@ class Welcome extends CI_Controller {
     {
         $d = $this->curl->simple_get('http://192.168.10.180/bwmp/index.php/api/bwmp/getUser/format/json');
         
-        echo $d;
+        $this->output->set_output($d)->_display();
+        exit();
+        //echo $d;
     }
     
     public function post()
@@ -18,6 +20,7 @@ class Welcome extends CI_Controller {
         $p = $this->input->post();
         $d = $this->curl->simple_post('http://192.168.10.180/bwmp/index.php/api/bwmp/setUser',$p);
         
-        echo $d;
+        $this->output->set_output($d)->_display();
     }
+    
 }

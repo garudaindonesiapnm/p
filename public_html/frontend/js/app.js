@@ -1,6 +1,6 @@
 var App = angular.module('App', ['ngAnimate', 'ngMaterial' , 'angularMoment', 'ui.bootstrap', 'ui.router', 'wt.responsive']);
 
-App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
+App.config( function($stateProvider, $urlRouterProvider, $httpProvider, $provide) {
         
     $stateProvider
     
@@ -16,17 +16,18 @@ App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
             templateUrl: 'partials/home.html'
         })
         
-        /* PROSPEK HOME (HOME2) */
+        /* HOME (HOME2) */
         .state('prospekhome', {
             url: '/prospek-home',
             templateUrl: 'partials/home2.html'
         })
         
-        /* PROSPEK UPDATE */
+        /* ============= PROSPEK DETAIL ============= */
+        
         .state('prospek', {
             url: '/prospek',
             templateUrl: 'partials/prospek.html',
-            controller: 'prospekCtrl'
+            controller: 'identitasIndividuCtrl'
         })
         .state('prospek.mandatory', {
             url: '/prospek-mandatory',
@@ -37,6 +38,9 @@ App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
             url: '/prospek-kategori',
             templateUrl: 'partials/prospek-kategori.html'
         })
+        
+        /* IDENTITAS INDIVIDU */
+        
         .state('prospek.informasipribadi', {
             url: '/prospek-informasi-pribadi',
             templateUrl: 'partials/prospek-informasi-pribadi.html'
@@ -49,9 +53,13 @@ App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
             url: '/prospek-kontak',
             templateUrl: 'partials/prospek-kontak.html'
         })
+        
+        /* ALAMAT */
+        
         .state('prospek.alamat', {
             url: '/prospek-alamat',
-            templateUrl: 'partials/prospek-alamat.html'
+            templateUrl: 'partials/prospek-alamat.html',
+            controller: 'alamatCtrl'
         })
         .state('prospek.alamat.ktp', {
             url: '/prospek-alamat-ktp',
@@ -65,6 +73,9 @@ App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
             url: '/prospek-alamat-tempat-usaha',
             templateUrl: 'partials/prospek-alamat-tempat-usaha.html'
         })
+        
+        /* STATUS PEKERJAAN */
+        
         .state('prospek.statuspekerjaan', {
             url: '/prospek-status-pekerjaan',
             templateUrl: 'partials/prospek-status-pekerjaan.html'
@@ -79,6 +90,7 @@ App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
         })
         
         /* PROSPEK CREATE WIZARD */
+        
         .state('prospekcreate', {
             url: '/prospek-create',
             templateUrl: 'partials/prospek-create.html',
@@ -192,10 +204,40 @@ App.config( function($stateProvider, $urlRouterProvider, $httpProvider) {
         $httpProvider.defaults.headers.post = {};
         $httpProvider.defaults.headers.put = {};
         $httpProvider.defaults.headers.patch = {};
+        
+        /* HTML5MODE */
+        
+        //$stateProvider.html5Mode(true);
+        
+        /* BASE API */
+        
+        $provide.value("webServiceBase", "http://192.168.1.252/PNM/index.php/api/v1/");
 
 });
 
-App.factory("apiData", function ($http, globalFunction) {
+App.run(['$location', '$rootScope' ,
+    function($location, $rootScope) {
+        
+        $rootScope.$on('$stateChangeStart', function(event, current, previous){
+                
+            //here when route start event
+            
+        });
+            
+        $rootScope.$on('$stateChangeSuccess', function (event, current, previous) {
+
+            //if (current.hasOwnProperty('$$route')) {
+                //$rootScope.title = current.$$route.title;
+            //}
+            
+             console.log('WORKING');
+            
+        });
+
+    }
+]);
+
+App.factory("apiData", function ($http, globalFunction, $rootScope) {
     
     return {
         get : function(scope,api){
@@ -238,6 +280,29 @@ App.factory("apiData", function ($http, globalFunction) {
                 console.log(R.statusText);
             });
             
+        },
+        
+        get_provinsi : function(){
+            
+            var api = 'master/lov_provinsi';
+        
+            $http({
+                method : "GET",
+                url : api,
+                dataType: 'json',
+                headers: { 'Content-Type':'application/json' },
+            }).then(function mySucces(R) {
+
+                $rootScope.provinsi = R;
+                
+                 console.log(R);
+
+            }, function myError(R) {
+
+               console.log(R.statusText);
+
+            });
+            
         }
     };
     
@@ -258,10 +323,7 @@ App.factory('globalFunction',function(){
     
 });
 
-App.controller('prospekCreate',function($scope,apiData){
-        
-    //var api = 'http://192.168.10.180/bwmp/index.php/api/bwmp/getUser/format/json';
-    //apiData.get($scope,api);
+App.controller('prospekCreate',function($scope,$http,globalFunction){
     
     $scope.calonDebiturs = [];
     
@@ -269,31 +331,35 @@ App.controller('prospekCreate',function($scope,apiData){
     
     $scope.processFormProspekCreate = function() {
         
-        //console.log($scope.formDataProspekCreate);
         if ($scope.formValid()) {
             
-            $scope.calonDebiturs.push(angular.copy($scope.formDataProspekCreate));
-        
-            console.log($scope.calonDebiturs);
-
-            $scope.prospekCreateForm.$setPristine();
+            var api = '';
+            var data = $scope.formDataProspekCreate;
+            
+            $http({
+                method: 'POST',
+                url: api,
+                headers: { 'Content-Type':'application/x-www-form-urlencoded' },
+                data: globalFunction.serializeObj(data)
+            }).then(function(R){
+                
+                if (R.status == '200') {
+                    $scope.calonDebiturs.push(angular.copy($scope.formDataProspekCreate));
+                    $scope.prospekCreateForm.$setPristine();
+                }
+                
+            }, function myError(R){
+                console.log(R.statusText);
+            });
             
         }
-        
-        //var api = "http://localhost:81/prospek_pnm/public_html/backend/index.php/welcome/post";
-
-        //apiData.post($scope,api,{nomor_sk:"sk007"});
 
     };
     
+    /* Form Valid */
     $scope.formValidStatus = false;
     
     $scope.formValid = function(){
-        
-        /*
-        if ($scope.formDataProspekCreate.nama_lengkap) {
-            $scope.formValidMsg.push('Nama lengkap tidak boleh kosong');
-        }*/
         
         $scope.formValidMsg = [];
         console.log($scope.formDataProspekCreate.nama_panggilan);
@@ -340,9 +406,30 @@ App.controller('prospekCreate',function($scope,apiData){
         
     };
     
-    $scope.closeAlert = function(index) {
-        $scope.formValidMsg.splice(index, 1);
+    /* Get Data Calon Debitur */
+    
+    $scope.getCalonDebitur = function(){
+        
+        var api = '';
+        
+        $http({
+            method : "GET",
+            url : api,
+            dataType: 'json',
+            headers: { 'Content-Type':'application/json' },
+        }).then(function mySucces(R) {
+
+            $scope.calonDebitur = R.data;
+
+        }, function myError(R) {
+
+            console.log(R.statusText);
+
+        });
+        
     };
+
+    /* Paging Calon Cebitur */
     
     $scope.maxSize = 4;
     $scope.totalItems = 64;
@@ -350,7 +437,6 @@ App.controller('prospekCreate',function($scope,apiData){
 
     $scope.setPage = function (pageNo) {
       $scope.currentPage = pageNo;
-      
     };
 
     $scope.pageChanged = function(cp) {
@@ -360,7 +446,7 @@ App.controller('prospekCreate',function($scope,apiData){
   
 });
 
-App.controller('prospekCtrl', function($scope,apiData) {
+App.controller('identitasIndividuCtrl', function($scope,apiData) {
 
         $scope.formDataProspek = {};
 
@@ -384,6 +470,11 @@ App.controller('prospekCtrl', function($scope,apiData) {
         var api = 'http://localhost:81/prospek_pnm/public_html/backend/';
         apiData.get($scope,api);
        
+    })
+    .controller('alamatCtrl', function($scope, apiData){
+        
+        apiData.get_provinsi();
+        
     });
 
 App.controller('kategoriCtrl', function($scope){
