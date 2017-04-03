@@ -237,7 +237,7 @@ App.run(['$location', '$rootScope' ,
     }
 ]);
 
-App.factory("apiData", function ($http, globalFunction, $rootScope) {
+App.factory("apiData", function ($http, globalFunction, $rootScope, webServiceBase) {
     
     return {
         get : function(scope,api){
@@ -284,7 +284,7 @@ App.factory("apiData", function ($http, globalFunction, $rootScope) {
         
         get_provinsi : function(){
             
-            var api = 'master/lov_provinsi';
+            var api = webServiceBase + 'master/lov_provinsi';
         
             $http({
                 method : "GET",
@@ -293,7 +293,7 @@ App.factory("apiData", function ($http, globalFunction, $rootScope) {
                 headers: { 'Content-Type':'application/json' },
             }).then(function mySucces(R) {
 
-                $rootScope.provinsi = R;
+                $rootScope.provinsi = R.data;
                 
                  console.log(R);
 
